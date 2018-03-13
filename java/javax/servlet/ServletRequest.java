@@ -396,6 +396,7 @@ public interface ServletRequest {
      */
     public RequestDispatcher getRequestDispatcher(String path);
 
+
     /**
      * @param path The virtual path to be converted to a real path
      * @return {@link ServletContext#getRealPath(String)}
