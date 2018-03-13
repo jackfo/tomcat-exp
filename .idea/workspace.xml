@@ -9,8 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a519bca4-5245-498a-9663-351e88aa88d5" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/java/javax/servlet/ServletRequest.java" afterPath="$PROJECT_DIR$/java/javax/servlet/ServletRequest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/web/WEB-INF/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1093,12 +1091,20 @@
       <workItem from="1520407770057" duration="2795000" />
       <workItem from="1520559241964" duration="1491000" />
       <workItem from="1520564456100" duration="1181000" />
-      <workItem from="1520852115943" duration="2482000" />
+      <workItem from="1520852115943" duration="2528000" />
     </task>
+    <task id="LOCAL-00001" summary="tomcat源码解读">
+      <created>1520928959703</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1520928959703</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168307000" />
+    <option name="totallyTimeSpent" value="168353000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1138,6 +1144,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="tomcat源码解读" />
+    <option name="LAST_COMMIT_MESSAGE" value="tomcat源码解读" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
