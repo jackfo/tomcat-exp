@@ -1,0 +1,11 @@
+*{margin:0px;padding:0px}
+ul{list-style:none;}
+.mytable{padding:5px 5px;}
+input{height:21px;line-height:21px;font-size:9pt;}
+.formField dt,dd{float:left;}
+.clear{clear:both;}
+.easyui-linkbutton{float:left;margin-right:10px}
+.datagrid-btn-separator{margin-right:10px}
+.buttonPanel{padding:5px;padding-bottom:2px;background:#EFEFEF;border-bottom:1px solid #CCCCCC;}
+.buttonPanel .formPanel{margin-left:10px;}
+.buttonPanel .formPanel label{float:left;line-height:28px;width:80px;text-align:right;}

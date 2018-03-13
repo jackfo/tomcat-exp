@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="ant">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/tempLib/ant.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tempLib/commons-daemon-1.0.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tempLib/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tempLib/easymock-3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tempLib/ecj-4.6.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tempLib/geronimo-spec-jaxrpc-1.1-rc4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tempLib/junit-4.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tempLib/log4j-api-2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tempLib/log4j-core-2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tempLib/servlet-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tempLib/wsdl4j-1.6.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

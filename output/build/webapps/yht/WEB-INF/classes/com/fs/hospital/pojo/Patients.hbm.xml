@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="">
+	<class name="com.fs.hospital.pojo.Patients" table="FS_PATIENTS"><!-- 患者 -->
+		<id name="id" type="java.lang.Integer">
+			<column name="PATI_ID"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" column="PATI_NAME" type="java.lang.String" />
+		<property name="scode" column="PATI_SCODE" type="java.lang.String" />
+		<property name="sex" column="PATI_SEX" type="java.lang.Integer" />
+		<property name="age" column="PATI_AGE" type="java.lang.String" />
+		<property name="phone" column="PATI_PHONE" type="java.lang.String" />
+		<property name="departments" column="PATI_DEPARTMENTS" type="java.lang.String" />
+		<property name="enterTime" column="PATI_STARTTIME" type="java.sql.Timestamp" />
+		<property name="exitTime"  column="PATI_ENDTIME"  type="java.sql.Timestamp" />
+		<property name="addr" column="PATI_ADDR" type="java.lang.String" />
+		<property name="birthday"  column="birthday"  type="java.sql.Timestamp" />
+	</class>
+</hibernate-mapping>

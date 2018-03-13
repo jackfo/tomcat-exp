@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.fs.custom.pojo">
+	<class name="DBConnection" table="FS_CONNECTION">
+		<id name="id" column="C_ID" type="java.lang.Integer">
+			<generator class="increment" />
+		</id>
+		<property name="name" column="C_NAME" type="java.lang.String" length="64"/>
+		<property name="clazz" column="C_CLASS" type="java.lang.String" length="256"/>
+		<property name="url" column="C_URL" type="java.lang.String" length="256"/>
+		<property name="user" column="C_USER" type="java.lang.String" length="128"/>
+		<property name="pass" column="C_PASS" type="java.lang.String" length="128"/>
+		<many-to-one name="driver" column="C_D_ID" class="DBDriver"/>
+	</class>
+</hibernate-mapping>

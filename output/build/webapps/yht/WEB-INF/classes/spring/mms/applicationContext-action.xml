@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	
+	<!-- ********************************彩信管理模块******************************** -->
+	<bean id="mmSendAction" class="com.fs.mms.action.MmSendAction" scope="prototype"
+		p:mmSendService-ref="mmSendService" p:operatorService-ref="operatorService"
+		p:organService-ref="organizationService" p:contactsService-ref="contactsService"
+		p:conGroupService-ref="conGroupService" p:attachmentService-ref="attachmentService"
+		p:mmSendTaskService-ref="mmSendTaskService" p:msgOutBoxService-ref="msgOutBoxService"/>
+	<bean id="mmSendTaskAction" class="com.fs.mms.action.MmSendTaskAction" scope="prototype"
+		p:mmSendService-ref="mmSendService" p:mmSendTaskService-ref="mmSendTaskService"
+		p:sendMsgService-ref="smSendMsgService" p:msgOutBoxService-ref="msgOutBoxService"/>
+	<bean id="mmReceiveAction" class="com.fs.mms.action.MmReceiveAction" scope="prototype"
+		p:mmReceiveService-ref="mmReceiveService"/>	
+	<bean id="mmsWaiteAction" class="com.fs.mms.action.MmsWaiteAction" scope="prototype"
+		p:mmSendService-ref="mmSendService" p:mmSendContentService-ref="mmSendContentService"/>
+	<bean id="mmTemplateAction" class="com.fs.mms.action.MmTemplateAction" scope="prototype"
+		p:mmTemplateService-ref="mmTemplateService"/>
+	<bean id="mmsResultAction" class="com.fs.mms.action.MmsResultAction" scope="prototype"
+		p:mmsResultService-ref="mmsResultService"/>	
+	<bean id="mmChartAction" class="com.fs.mms.action.MmChartAction" scope="prototype"
+		p:mmSendTotalService-ref="mmSendTotalService" p:mmReceiveService-ref="mmReceiveService"
+		p:threadPool-ref="baseThreadPool"/>	
+</beans>

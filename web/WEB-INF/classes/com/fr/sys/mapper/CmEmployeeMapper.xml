@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fr.sys.mapper.CmEmployeeMapper">
+  <resultMap id="BaseResultMap" type="com.fr.sys.model.CmEmployee">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="employee_id" jdbcType="VARCHAR" property="employeeId" />
+    <result column="e_sex" jdbcType="VARCHAR" property="eSex" />
+    <result column="e_age" jdbcType="VARCHAR" property="eAge" />
+    <result column="e_name" jdbcType="VARCHAR" property="eName" />
+  </resultMap>
+  
+  <select id="getEmployeeList" parameterType="String" resultMap="BaseResultMap">
+      select * from cm_employee WHERE  e_sex LIKE '%${keyword}%' or e_name LIKE '%${keyword}%' or e_age LIKE '%${keyword}%'
+  </select>
+</mapper>

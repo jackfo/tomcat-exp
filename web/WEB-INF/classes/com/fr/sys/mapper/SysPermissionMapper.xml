@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fr.sys.mapper.SysPermissionMapper">
+  <resultMap id="BaseResultMap" type="com.fr.sys.model.SysPermission">
+    <id column="permission_id" jdbcType="VARCHAR" property="permissionId" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+
+
+  <!--根据roleId查询-->
+  <select id="getPermissionByRoleId" parameterType="String" resultMap="BaseResultMap">
+    select * from sys_permission where sys_permission.permission_id in
+    (select sys_role_permission.permission_id from sys_role_permission where sys_role_permission.role_id=#{role_id} )
+  </select>
+
+
+  <!--根据keyword查询-->
+  <select id="getPermissionList" parameterType="String" resultMap="BaseResultMap">
+    select * from sys_permission WHERE  permission_id LIKE '%${keyword}%' or description LIKE '%${keyword}%'
+  </select>
+
+</mapper>

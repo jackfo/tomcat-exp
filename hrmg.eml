@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inheritJdk="true">
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$">
+		<excludeFolder url="file://$MODULE_DIR$/src/com/fr/utils"/>
+	</contentEntry>
+	<levels>
+		<level name="Spring-4.3.12.RELEASE" value="project"/>
+		<level name="Spring MVC-4.3.12.RELEASE" value="project"/>
+		<level name="aopalliance-1.0" value="project"/>
+		<level name="druid-1.0.17" value="project"/>
+		<level name="mysql-connector-java-5.1.28-bin" value="project"/>
+		<level name="spring-security-config-4.0.3.RELEASE" value="project"/>
+		<level name="jstl-impl-1.2.2" value="project"/>
+		<level name="activation-1.1" value="project"/>
+		<level name="commons-codec-1.10" value="project"/>
+		<level name="commons-net-3.3" value="project"/>
+		<level name="fastjson-1.2.7" value="project"/>
+		<level name="slf4j-api-1.7.7" value="project"/>
+		<level name="icu4j-52_1" value="project"/>
+		<level name="commons-beanutils-1.9.2" value="project"/>
+		<level name="jakarta-oro-2.0.8" value="project"/>
+		<level name="xstream-1.4.6" value="project"/>
+		<level name="xercesImpl-2.11.0" value="project"/>
+		<level name="juel-impl-2.2.7" value="project"/>
+		<level name="clhm-release-1.0-lru" value="project"/>
+		<level name="jdbm-1.0-SNAPSHOT" value="project"/>
+		<level name="owasp-java-html-sanitizer-r239" value="project"/>
+		<level name="esapi-2.1.0" value="project"/>
+		<level name="xml-apis-1.4.01" value="project"/>
+		<level name="mybatis-generator-core-1.3.5" value="project"/>
+		<level name="javax.persistence" value="project"/>
+		<level name="mybatis-spring-1.3.1" value="project"/>
+		<level name="mybatis-3.4.5" value="project"/>
+		<level name="spring-security-taglibs-4.0.3.RELEASE" value="project"/>
+		<level name="servlet-api" value="project"/>
+		<level name="pagehelper-5.1.2" value="project"/>
+		<level name="jsqlparser-1.1" value="project"/>
+		<level name="jstl-1.2" value="project"/>
+	</levels>
+</component>

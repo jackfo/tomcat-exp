@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+ 	
+ 	<!-- ********************************有接口的院长日报模块******************************** -->
+	<bean id="portDeanDao" class="com.fs.port.dao.imp.DeanDaoImp" autowire="byName"
+		p:thirdDataSource-ref="thirdDataSource" />
+ 	
+ 	<!-- ********************************有接口的院后随访模块******************************** -->
+	<bean id="followDao" class="com.fs.port.dao.imp.FollowDaoImp" autowire="byName"
+		p:thirdDataSource-ref="thirdDataSource" p:sessionFactory-ref="sessionFactory" />
+ 	
+ 	<!-- ********************************有接口的入院关怀模块******************************** -->
+	<bean id="comeDao" class="com.fs.port.dao.imp.ComeDaoImp" autowire="byName"
+		p:thirdDataSource-ref="thirdDataSource" p:sessionFactory-ref="sessionFactory"
+		p:msgDataSource-ref="msgDataSource" />
+		
+ 	<!-- ********************************有接口的住院费用模块******************************** -->
+	<bean id="billsDao" class="com.fs.port.dao.imp.BillsDaoImp" autowire="byName"
+		p:thirdDataSource-ref="thirdDataSource" p:sessionFactory-ref="sessionFactory" />
+		
+ 	<!-- ********************************有接口的余额提醒模块******************************** -->
+ 	<bean id="balanceDao" class="com.fs.port.dao.imp.BalanceDaoImp" autowire="byName"
+ 		p:thirdDataSource-ref="thirdDataSource" p:masDataSource-ref="masDataSource" 
+ 		p:msgDataSource-ref="msgDataSource"/>
+ 	
+ 	<!-- ********************************有接口的检验报告模块******************************** -->
+	<bean id="lisDao" class="com.fs.port.dao.imp.LisDaoImp" autowire="byName"
+		p:thirdDataSource-ref="thirdDataSource" p:sessionFactory-ref="sessionFactory" />
+</beans>
+
+
+

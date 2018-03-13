@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	
+	<!-- ********************************疫苗类型模块******************************** -->
+	<bean id="vaccineTypeService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.hospital.service.imp.VaccineTypeServiceImp"
+				p:vaccineTypeDao-ref="vaccineTypeDao"/>
+		</property>
+	</bean>
+	
+	<!-- ********************************  患者模块  ******************************** -->
+	<bean id="patientsService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.hospital.service.imp.PatientsServiceImp"
+				p:patientsDao-ref="patientsDao" p:smSendMsgDao-ref="smSendMsgDao"
+				p:syncParamDao-ref="syncParamDao" />
+		</property>
+	</bean>
+	
+	<!-- ********************************  儿童模块  ******************************** -->
+	<bean id="childService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.hospital.service.imp.ChildServiceImp"
+				p:childDao-ref="childDao" p:smSendMsgDao-ref="smSendMsgDao"
+				p:syncParamDao-ref="syncParamDao" />
+		</property>
+	</bean>
+	
+	<!-- ********************************  孕妇模块  ******************************** -->
+	<bean id="pregnantWomanService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.hospital.service.imp.PregnantWomanServiceImp"
+				p:pregnantWomanDao-ref="pregnantWomanDao" p:smSendMsgDao-ref="smSendMsgDao"
+				p:syncParamDao-ref="syncParamDao" />
+		</property>
+	</bean>
+	
+	<!-- ********************************  院长日报模块  ******************************** -->
+	<bean id="deanService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.hospital.service.imp.DeanServiceImp"
+				p:smSendMsgDao-ref="smSendMsgDao" p:syncParamDao-ref="syncParamDao" 
+				p:msgDataSource-ref="msgDataSource" p:thirdDataSource-ref="thirdDataSource"/>
+		</property>
+	</bean>
+	
+	<!-- ********************************  生日祝福模块  ******************************** -->
+	<bean id="birthDayService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.hospital.service.imp.BirthDayServiceImp"
+				p:smSendMsgDao-ref="smSendMsgDao" p:syncParamDao-ref="syncParamDao"
+				p:contactsDao-ref="contactsDao" p:operatorDao-ref="operatorDao" 
+				p:patientsDao-ref="patientsDao" p:msgDataSource-ref="msgDataSource" />
+		</property>
+	</bean>
+	
+	<!-- ********************************  同步参数模块  ******************************** -->
+	<bean id="syncParamService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.hospital.service.imp.SyncParamServiceImp"
+				p:syncParamDao-ref="syncParamDao" />
+		</property>
+	</bean>
+
+	<!-- ********************************  自定义回复模块  ******************************** -->
+    <bean id="receivedDefinitionService" parent="transactionProxy">
+    	<property name="target">
+    		<bean class="com.fs.hospital.service.imp.ReceivedDefinitionServiceImp"
+    			p:receivedDefinitionDao-ref="receivedDefinitionDao" 
+    			p:smSendMsgDao-ref="smSendMsgDao"
+    			p:masDataSource-ref="masDataSource"/>
+    	</property>
+    </bean> 	
+</beans>

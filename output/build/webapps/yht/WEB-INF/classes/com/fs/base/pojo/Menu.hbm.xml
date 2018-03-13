@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="">
+	<class name="com.fs.base.pojo.Menu" table="FS_MENU">
+		<id name="id" type="java.lang.Integer">
+			<column name="MENU_ID"></column>
+			<generator class="increment"></generator>
+		</id>
+		<many-to-one name="parent" class="com.fs.base.pojo.Menu" column="PARENT_ID"/>
+		<property name="menuName" column="MENU_NAME" type="java.lang.String" length="64"/>
+		<property name="menuUrl" column="MENU_URL" type="java.lang.String" length="512"/>
+		<property name="menuIcon" column="MENU_ICON" type="java.lang.String" length="64"/>
+		<property name="precedence" column="PRECEDENCE" type="java.lang.Integer"/>
+		<property name="isRoot" column="ISROOT" type="java.lang.Integer"/>
+		<property name="status" column="STATUS" type="java.lang.Integer"/>
+		<property name="menuLinks" column="MENU_LINKS" type="java.lang.String" length="512"/>
+		
+		<bag name="child" inverse="true" order-by="PRECEDENCE asc" cascade="all-delete-orphan">
+			<key column="PARENT_ID" />
+			<one-to-many class="com.fs.base.pojo.Menu" />
+		</bag>
+		<bag name="buttons" inverse="true" cascade="all-delete-orphan">
+			<key column="MENU_ID" />
+			<one-to-many class="com.fs.base.pojo.Button" />
+		</bag>
+		<bag name="roleMenus" inverse="true" cascade="all-delete-orphan">
+			<key column="MENU_ID"/>
+			<one-to-many class="com.fs.base.pojo.RoleMenu"/>
+		</bag>
+	</class>
+</hibernate-mapping>

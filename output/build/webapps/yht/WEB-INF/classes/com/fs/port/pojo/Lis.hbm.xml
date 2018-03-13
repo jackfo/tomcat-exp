@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+	检验报告
+-->
+<hibernate-mapping package="com.fs.port.pojo">
+	<class name="Lis" table="FS_THIRD_LIS">
+		<id name="id" type="java.lang.Integer" column="ID">
+			<generator class="increment" />
+		</id>
+		<property name="patientId" column="PATIENT_ID" type="string" />
+		<property name="name" column="NAME" type="string" />
+		<property name="sex" column="SEX" type="string" />
+		<property name="mobile" column="MOBILE" type="string" />
+		<property name="sort" column="SORT" type="string" />
+		<property name="lisDate" column="LIS_DATE" type="java.sql.Timestamp"/>
+	</class>
+</hibernate-mapping>

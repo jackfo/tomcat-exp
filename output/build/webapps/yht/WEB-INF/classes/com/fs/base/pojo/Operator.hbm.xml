@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="">
+	<class name="com.fs.base.pojo.Operator" table="FS_OPERATOR">
+		<id name="id" type="java.lang.Integer">
+			<column name="USER_ID"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="unitId" column="UNIT_ID" type="java.lang.Integer"/>
+		<property name="account" column="ACCOUNT" type="java.lang.String" length="64"/>
+		<property name="password" column="PASSWORD" type="java.lang.String" length="128"/>
+		<property name="userName" column="USER_NAME" type="java.lang.String" length="64"/>
+		<property name="sex" column="USER_SEX" type="java.lang.Integer"/>
+		<property name="scode" column="SCODE" type="java.lang.String" length="256"/>
+		<property name="birthday" column="BIRTHDAY" type="java.sql.Timestamp"/>
+		<property name="mobile" column="MOBILE_PHONE" type="java.lang.String" length="32"/>
+		<property name="status" column="STATUS" type="java.lang.Integer"/>
+		<property name="twoPass" column="D_PASSWORD" type="java.lang.String" length="16"/>
+		<property name="createDate" column="DATE_TIME" type="java.sql.Timestamp"/>
+		<many-to-one name="organ" not-found="ignore" class="com.fs.base.pojo.Organization" column="ORGAN_ID" lazy="false"/>
+		<many-to-one name="role" not-found="ignore" class="com.fs.base.pojo.Role" column="ROLE_ID"/>
+	</class>
+</hibernate-mapping>

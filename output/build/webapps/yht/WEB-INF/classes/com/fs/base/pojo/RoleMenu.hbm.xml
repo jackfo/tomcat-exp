@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="">
+	<class name="com.fs.base.pojo.RoleMenu" table="FS_ROLE_MENU">
+		<id name="id" type="java.lang.Integer">
+			<column name="ROLE_MENU_ID"></column>
+			<generator class="increment"></generator>
+		</id>
+		<many-to-one name="role" class="com.fs.base.pojo.Role" column="ROLE_ID"/>
+		<many-to-one name="menu" class="com.fs.base.pojo.Menu" column="MENU_ID"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fr.sys.mapper.SysRoleMapper">
+
+  <resultMap id="BaseResultMap" type="com.fr.sys.model.SysRole">
+    <id column="role_id" jdbcType="VARCHAR" property="roleId" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+  </resultMap>
+    <!-- 在select标签中编写查询的SQL语句， 设置select标签的id属性为getUser，id属性值必须是唯一的，不能够重复
+    使用parameterType属性指明查询时使用的参数类型，resultType属性指明查询返回的结果集类型
+    resultType="me.gacl.domain.User"就表示将查询结果封装成一个User类的对象返回
+    User类就是users表所对应的实体类
+    -->
+    <!--
+        根据id查询得到一个user对象
+     -->
+    <select id="getRoleList" parameterType="String" resultMap="BaseResultMap">
+             select * from sys_role WHERE  role_id LIKE '%${keyword}%' or role_name LIKE '%${keyword}%'
+ </select>
+    
+
+
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.fs.custom.pojo">
+	<class name="FormParam" table="FS_FORM_PARAM">
+		<id name="id" column="P_ID" type="java.lang.Long">
+			<generator class="increment" />
+		</id>
+		<property name="label" column="P_LABEL" type="java.lang.String" length="64"/>
+		<property name="mark" column="P_MARK" type="java.lang.String" length="64"/>
+		<property name="type" column="P_TYPE" type="java.lang.String" length="64"/>
+		<property name="format" column="P_FORMAT" type="java.lang.String" length="128"/>
+		<property name="nomal" column="P_NOMAL" type="java.lang.String" length="128"/>
+		<many-to-one name="form" column="P_F_ID" class="Form"/>
+	</class>
+</hibernate-mapping>

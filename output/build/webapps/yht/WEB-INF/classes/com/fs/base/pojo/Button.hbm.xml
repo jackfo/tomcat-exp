@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="">
+	<class name="com.fs.base.pojo.Button" table="FS_BUTTON">
+		<id name="id" type="java.lang.Integer">
+			<column name="BUTTON_ID"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="buttonName" column="BUTTON_NAME" type="java.lang.String" length="64"/>
+		<property name="buttonMark" column="BUTTON_MARK" type="java.lang.String" length="16"/>
+		<property name="accessRes" column="ACCESS_RES" type="java.lang.String" length="512"/>
+		<many-to-one name="menu" class="com.fs.base.pojo.Menu" column="MENU_ID"/>
+		<bag name="roleButtons" inverse="true" cascade="all-delete-orphan">
+			<key column="BUTTON_ID"/>
+			<one-to-many class="com.fs.base.pojo.RoleButton"/>
+		</bag>
+	</class>
+</hibernate-mapping>

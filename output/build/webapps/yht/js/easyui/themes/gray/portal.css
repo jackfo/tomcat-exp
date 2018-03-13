@@ -1,0 +1,21 @@
+.portal {
+	BORDER-BOTTOM: #99bbe8 1px solid; BORDER-LEFT: #99bbe8 1px solid; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; OVERFLOW: auto; BORDER-TOP: #99bbe8 1px solid; BORDER-RIGHT: #99bbe8 1px solid; PADDING-TOP: 0px
+}
+.portal-noborder {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+.portal-panel {
+	MARGIN-BOTTOM: 10px
+}
+.portal-column-td {
+	VERTICAL-ALIGN: top
+}
+.portal-column {
+	PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 0px; OVERFLOW: hidden; PADDING-TOP: 10px
+}
+.portal-proxy {
+	FILTER: alpha(opacity=60); opacity: 0.6
+}
+.portal-spacer {
+	BORDER-BOTTOM: #eee 3px dashed; BORDER-LEFT: #eee 3px dashed; MARGIN-BOTTOM: 10px; BORDER-TOP: #eee 3px dashed; BORDER-RIGHT: #eee 3px dashed
+}

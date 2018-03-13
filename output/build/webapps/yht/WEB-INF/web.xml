@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<!-- spring 配置文件-->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring/applicationContext.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	<listener>
+		<listener-class>
+			com.fs.util.ContextListener
+		</listener-class>
+	</listener>
+	<!-- hibernate session配置 -->
+	<filter>
+		<filter-name>hibernateFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+	<!--集成Spring字符过滤器配置==== end-->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>
+			org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<!--配置Struts2的核心控制器FilterDispatcher-->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>
+			org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+		</filter-class>
+		<init-param>
+        	<param-name>config</param-name>
+        	<param-value>struts-default.xml,struts-plugin.xml,struts/struts.xml</param-value>
+        </init-param>
+	</filter>
+	<!--  
+ 	<filter> 
+ 	 	<filter-name>license</filter-name>  
+ 		<filter-class>  
+ 			com.fs.license.util.LicenseFilter  
+  		</filter-class>  
+ 	</filter>  
+ 	<filter-mapping>   
+  		<filter-name>license</filter-name>  
+   		<url-pattern>/*</url-pattern>   
+   	</filter-mapping>
+   	-->   
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>hibernateFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>*.qt</url-pattern>
+	</filter-mapping>
+
+	<!--配置axis ws-->
+	<servlet>
+		<servlet-name>AxisServlet</servlet-name>
+		<servlet-class>
+			org.apache.axis.transport.http.AxisServlet
+		</servlet-class>
+	</servlet>
+  <servlet>
+    <servlet-name>fileDo</servlet-name>
+    <servlet-class>com.fs.source.action.FileDo</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>uploadTemplate</servlet-name>
+    <servlet-class>com.fs.util.UploadTemplate</servlet-class>
+  </servlet>
+
+
+
+	<!-- 用来管理Webservice的Servlet -->
+	<!-- 
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>/servlet/AxisServlet</url-pattern>
+	</servlet-mapping>
+	 -->
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>/services/*</url-pattern>
+	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>fileDo</servlet-name>
+    <url-pattern>/fileDo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>uploadTemplate</servlet-name>
+    <url-pattern>/uploadTemplate</url-pattern>
+  </servlet-mapping>
+	<mime-mapping>
+		<extension>wsdl</extension>
+		<mime-type>text/xml</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>xsd</extension>
+		<mime-type>text/xml</mime-type>
+	</mime-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>login.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

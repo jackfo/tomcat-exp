@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+		
+	<!-- ********************************短信管理模块******************************** -->
+	<bean id="smTemplateDao" class="com.fs.sms.dao.imp.SmTemplateDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory"/>
+	<bean id="smSendMsgDao" class="com.fs.sms.dao.imp.SmSendMsgDaoImp" autowire="byName"
+		p:dataSource-ref="masDataSource"/>
+	<bean id="smSendTaskDao" class="com.fs.sms.dao.imp.SmSendTaskDaoImp" autowire="byName"
+		p:dataSource-ref="masDataSource"/>
+	<bean id="smRecvMsgDao" class="com.fs.sms.dao.imp.SmRecvMsgDaoImp"  autowire="byName"
+		p:dataSource-ref="masDataSource"/>
+	<bean id="smSendTotalDao" class="com.fs.sms.dao.imp.SmSendTotalDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory" p:dataSource-ref="masDataSource"/>
+	<bean id="smVoteDao" class="com.fs.sms.dao.imp.SmVoteDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory"/>
+	<bean id="publishMsgDao" class="com.fs.sms.dao.imp.PublishMsgDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory"/>
+	<bean id="sendMsgDao" class="com.fs.sms.dao.imp.SendMsgDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory"/>
+	<bean id="receiveBoxDao" class="com.fs.sms.dao.imp.ReceiveBoxDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory"/>
+	<bean id="replyBoxDao" class="com.fs.sms.dao.imp.ReplyBoxDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory"/>
+</beans>

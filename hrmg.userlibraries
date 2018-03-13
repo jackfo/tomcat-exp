@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Spring-4.3.12.RELEASE" />
+  <library name="Spring MVC-4.3.12.RELEASE" />
+  <library name="activation-1.1">
+    <archive path="/project/hrmg/web/WEB-INF/lib/activation-1.1.jar" />
+  </library>
+  <library name="aopalliance-1.0">
+    <archive path="/project/hrmg/web/WEB-INF/lib/aopalliance-1.0.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/commons-logging-1.2.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-aop-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-aspects-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-beans-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-context-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-context-support-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-core-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-expression-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-instrument-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-instrument-tomcat-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-jdbc-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-jms-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-messaging-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-orm-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-oxm-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-test-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-tx-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-web-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-webmvc-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-webmvc-portlet-4.3.12.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-websocket-4.3.12.RELEASE.jar" />
+  </library>
+  <library name="clhm-release-1.0-lru">
+    <archive path="/project/hrmg/web/WEB-INF/lib/clhm-release-1.0-lru.jar" />
+  </library>
+  <library name="commons-beanutils-1.9.2">
+    <archive path="/project/hrmg/web/WEB-INF/lib/commons-beanutils-1.9.2.jar" />
+  </library>
+  <library name="commons-codec-1.10">
+    <archive path="/project/hrmg/web/WEB-INF/lib/commons-codec-1.10.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/commons-collections-3.2.1.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/commons-fileupload-1.3.1.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/commons-io-2.4.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/commons-lang3-3.3.2.jar" />
+  </library>
+  <library name="commons-net-3.3">
+    <archive path="/project/hrmg/web/WEB-INF/lib/commons-net-3.3.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/commons-pool2-2.0.jar" />
+  </library>
+  <library name="druid-1.0.17">
+    <archive path="/project/hrmg/web/WEB-INF/lib/druid-1.0.17.jar" />
+  </library>
+  <library name="esapi-2.1.0">
+    <archive path="/project/hrmg/web/WEB-INF/lib/esapi-2.1.0.jar" />
+  </library>
+  <library name="fastjson-1.2.7">
+    <archive path="/project/hrmg/web/WEB-INF/lib/fastjson-1.2.7.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/guava-18.0.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/jackson-annotations-2.6.0.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/jackson-core-2.6.4.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/jackson-core-asl-1.9.13.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/jackson-databind-2.6.4.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/jackson-mapper-asl-1.9.13.jar" />
+  </library>
+  <library name="icu4j-52_1">
+    <archive path="/project/hrmg/web/WEB-INF/lib/icu4j-52_1.jar" />
+  </library>
+  <library name="jakarta-oro-2.0.8">
+    <archive path="/project/hrmg/web/WEB-INF/lib/jakarta-oro-2.0.8.jar" />
+  </library>
+  <library name="javax.persistence">
+    <archive path="/project/hrmg/web/WEB-INF/lib/javax.persistence.jar" />
+  </library>
+  <library name="jdbm-1.0-SNAPSHOT">
+    <archive path="/project/hrmg/web/WEB-INF/lib/jdbm-1.0-SNAPSHOT.jar" />
+  </library>
+  <library name="jstl-impl-1.2.2">
+    <archive path="/project/hrmg/web/WEB-INF/lib/jstl-impl-1.2.2.jar" />
+  </library>
+  <library name="juel-impl-2.2.7">
+    <archive path="/project/hrmg/web/WEB-INF/lib/juel-impl-2.2.7.jar" />
+  </library>
+  <library name="log4j-1.2.15">
+    <archive path="/project/hrmg/web/WEB-INF/lib/log4j-1.2.15.jar" />
+  </library>
+  <library name="mybatis-3.4.5">
+    <archive path="/project/hrmg/web/WEB-INF/lib/mybatis-3.4.5.jar" />
+  </library>
+  <library name="mybatis-generator-core-1.3.5">
+    <archive path="/project/hrmg/web/WEB-INF/lib/mybatis-generator-core-1.3.5.jar" />
+  </library>
+  <library name="mybatis-spring-1.3.1">
+    <archive path="/project/hrmg/web/WEB-INF/lib/mybatis-spring-1.3.1.jar" />
+  </library>
+  <library name="mysql-connector-java-5.1.28-bin">
+    <archive path="/project/hrmg/web/WEB-INF/lib/mysql-connector-java-5.1.28-bin.jar" />
+  </library>
+  <library name="owasp-java-html-sanitizer-r239">
+    <archive path="/project/hrmg/web/WEB-INF/lib/owasp-java-html-sanitizer-r239.jar" />
+  </library>
+  <library name="pagehelper-5.1.2">
+    <archive path="/project/hrmg/web/WEB-INF/lib/pagehelper-5.1.2.jar" />
+  </library>
+  <library name="servlet-api">
+    <archive path="/project/hrmg/tempLib/servlet-api.jar" />
+  </library>
+  <library name="slf4j-api-1.7.7">
+    <archive path="/project/hrmg/web/WEB-INF/lib/slf4j-api-1.7.7.jar" />
+  </library>
+  <library name="spring-security-config-4.0.3.RELEASE">
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-security-config-4.0.3.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-security-core-4.0.3.RELEASE.jar" />
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-security-web-4.0.3.RELEASE.jar" />
+  </library>
+  <library name="spring-security-taglibs-4.0.3.RELEASE">
+    <archive path="/project/hrmg/web/WEB-INF/lib/spring-security-taglibs-4.0.3.RELEASE.jar" />
+  </library>
+  <library name="xercesImpl-2.11.0">
+    <archive path="/project/hrmg/web/WEB-INF/lib/xercesImpl-2.11.0.jar" />
+  </library>
+  <library name="xml-apis-1.4.01">
+    <archive path="/project/hrmg/web/WEB-INF/lib/xml-apis-1.4.01.jar" />
+  </library>
+  <library name="xstream-1.4.6">
+    <archive path="/project/hrmg/web/WEB-INF/lib/xstream-1.4.6.jar" />
+  </library>
+  <library name="jsqlparser-1.1">
+    <archive path="/project/hrmg/web/WEB-INF/lib/jsqlparser-1.1.jar" />
+  </library>
+  <library name="jstl-1.2">
+    <archive path="/project/hrmg/web/WEB-INF/lib/jstl-1.2.jar" />
+  </library>
+</eclipse-userlibraries>
+

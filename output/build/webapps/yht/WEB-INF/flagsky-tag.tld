@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+                        "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd"> -->
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+	<tlibversion>1.0</tlibversion>
+	<jspversion>1.1</jspversion>
+	<shortname>fs-button-tag</shortname>
+	<uri>http://www.flagsky.com/buttons</uri>
+	<tag>
+		<name>button</name>
+		<tagclass>com.fs.util.tags.Jbutton</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>button tag</info>
+		<attribute>
+			<name>id</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<name>key</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<name>name</name>
+		</attribute>
+		<attribute>
+			<name>classes</name>
+		</attribute>
+		<attribute>
+			<name>iconCls</name>
+		</attribute>
+		<attribute>
+			<name>onClick</name>
+		</attribute>
+	</tag>
+	<function>
+		<description>生成权限字符串</description>
+		<name>chkAccess</name>
+		<function-class>com.fs.util.tags.Jbutton</function-class>
+		<function-signature>
+			java.lang.String chkAccess(java.lang.String, java.lang.String)
+		</function-signature>
+	</function>
+	<function>
+		<description>
+			验证是否含有该权限，有则返回true，否则false
+		</description>
+		<name>isAccess</name>
+		<function-class>com.fs.util.tags.Jbutton</function-class>
+		<function-signature>boolean isAccess(java.lang.String, java.lang.String)</function-signature>
+		<example></example>
+  </function>
+</taglib>

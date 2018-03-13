@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	
+	<!-- ********************************资源信息库模块******************************** -->
+	<bean id="forbiddenMobileAction" class="com.fs.source.action.ForbiddenMobileAction" scope="prototype"
+		p:forbiddenMobileService-ref="forbiddenMobileService"/>
+	<bean id="mmPicTypeBeanAction" class="com.fs.source.action.MmPicTypeBeanAction" scope="prototype"
+		p:mmPicTypeBeanService-ref="mmPicTypeBeanService"
+		p:mmPicBeanService-ref="mmPicBeanService"/>	
+	<bean id="mmMusicTypeBeanAction" class="com.fs.source.action.MmMusicTypeBeanAction" scope="prototype"
+		p:mmMusicTypeBeanService-ref="mmMusicTypeBeanService"
+		p:mmMusicBeanService-ref="mmMusicBeanService"/>	
+	<bean id="mmPicBeanAction" class="com.fs.source.action.MmPicBeanAction" scope="prototype"
+		p:mmPicBeanService-ref="mmPicBeanService"
+		p:mmPicTypeBeanService-ref="mmPicTypeBeanService"/>
+	<bean id="mmMusicBeanAction" class="com.fs.source.action.MmMusicBeanAction" scope="prototype"
+		p:mmMusicBeanService-ref="mmMusicBeanService"
+		p:mmMusicTypeBeanService-ref="mmMusicTypeBeanService"/>		
+	<bean id="forbiddenWordAction" class="com.fs.source.action.ForbiddenWordAction" scope="prototype"
+		p:forbiddenWordService-ref="forbiddenWordService"/>	
+</beans>

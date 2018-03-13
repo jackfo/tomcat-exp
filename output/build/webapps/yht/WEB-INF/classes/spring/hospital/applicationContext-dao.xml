@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+ 	
+ 	<!-- ********************************疫苗类型模块******************************** -->
+	<bean id="vaccineTypeDao" class="com.fs.hospital.dao.imp.VaccineTypeDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory" />
+	
+	<!-- ********************************  患者模块  ******************************** -->
+	<bean id="patientsDao" class="com.fs.hospital.dao.imp.PatientsDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory" />
+	
+	<!-- ********************************  儿童模块  ******************************** -->
+	<bean id="childDao" class="com.fs.hospital.dao.imp.ChildDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory" />
+	
+	<!-- ********************************  孕妇模块  ******************************** -->
+	<bean id="pregnantWomanDao" class="com.fs.hospital.dao.imp.PregnantWomanDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory" />
+	
+	<!-- ********************************  同步参数模块  ******************************** -->
+	<bean id="syncParamDao" class="com.fs.hospital.dao.imp.SyncParamDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory" />
+		
+	<!-- ********************************  自定义回复模块  ******************************** -->
+    <bean id="receivedDefinitionDao" class="com.fs.hospital.dao.imp.ReceivedDefinitionDaoImp" autowire="byName"
+    	p:sessionFactory-ref="sessionFactory"/>       		
+</beans>

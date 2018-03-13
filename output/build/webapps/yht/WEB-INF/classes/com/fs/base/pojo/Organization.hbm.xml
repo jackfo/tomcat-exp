@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="">
+	<class name="com.fs.base.pojo.Organization" table="FS_ORGANIZATION">
+		<id name="id" type="java.lang.Integer">
+			<column name="ORGAN_ID"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="orgnName" column="ORGAN_NAME" type="java.lang.String" length="512"/>
+		<many-to-one name="parent" class="com.fs.base.pojo.Organization" column="PARENT_ID"/>
+		<property name="precedence" column="PRECEDENCE" type="java.lang.Integer"/>
+		<property name="isRoot" column="ISROOT" type="java.lang.Integer"/>
+		<many-to-one name="unit" class="com.fs.base.pojo.Organization" column="UNIT_ID" insert="false" update="false"/>
+		<property name="unitId" column="UNIT_ID" type="java.lang.Integer"/>
+		<property name="isUnit" column="ISUNIT" type="java.lang.Integer"/>
+		<property name="seeLevel" column="SEE_LEVEL" type="java.lang.Integer"/>
+		
+		<property name="orgnNo" column="ORG_NO" type="java.lang.String" length="64"/>
+		<property name="parentNo" column="P_ORG_NO" type="java.lang.String" length="64"/>
+		<property name="sortNo" column="SORT_NO" type="java.lang.Integer"/>
+		
+		<bag name="child" inverse="true" cascade="all-delete-orphan">
+			<key column="PARENT_ID"/>
+			<one-to-many class="com.fs.base.pojo.Organization"/>
+		</bag>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="">
+	<class name="com.fs.base.pojo.Log" table="FS_LOG">
+		<id name="id" type="java.lang.Integer">
+			<column name="LOG_ID"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="operateTime" column="OPERATE_TIME" type="java.sql.Timestamp"/>
+		<property name="operatorId" column="OPERATOR_ID" type="java.lang.Integer"/>
+		<property name="operatorName" column="OPERATOR_NAME" type="java.lang.String" length="64"/>
+		<property name="operateInfo" column="OPERATE_INFO" type="java.lang.String" length="1024"/>
+		<property name="operateType" column="OPERATE_TYPE" type="java.lang.String" length="256"/>
+		<property name="operateBusiness" column="OPERATE_BUSINESS" type="java.lang.String" length="64"/>
+		
+	</class>
+</hibernate-mapping>

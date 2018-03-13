@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	<!-- ********************************system configure******************************** -->
+	<bean id="propertyConfigurer" class="com.fs.util.PropertyPlaceholderConfigurerEexpand">
+		<property name="locations">
+			<list>
+				<value>classpath:config.properties</value>
+				<value>classpath:timeparam.properties</value>
+			</list>
+		</property>
+		<!-- 支持中文配置
+		<property name="fileEncoding">
+			<value>UTF-8</value>
+		</property> -->
+	</bean>
+	<!-- ********************************基础模块******************************** -->
+	<import resource="classpath:spring/**/applicationContext-*.xml" />
+	
+	<!-- ********************************定义数据源******************************** -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close" p:driverClass="${flagsky.jdbc.driverClassName}"
+		p:jdbcUrl="${flagsky.jdbc.url}" p:user="${flagsky.jdbc.user}"
+		p:password="${flagsky.jdbc.password}"/>
+	<bean id="masDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close" p:driverClass="${sm.jdbc.driverClassName}"
+		p:jdbcUrl="${sm.jdbc.url}" p:user="${sm.jdbc.user}"
+		p:password="${sm.jdbc.password}"/>
+		
+	<!-- ********************************定义第三方数据源******************************** -->
+	<bean id="thirdDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close" p:driverClass="${third.jdbc.driverClassName}"
+		p:jdbcUrl="${third.jdbc.url}" p:user="${third.jdbc.user}"
+		p:password="${third.jdbc.password}"/>
+	<bean id="msgDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close" p:driverClass="${msgdata.jdbc.driverClassName}"
+		p:jdbcUrl="${msgdata.jdbc.url}" p:user="${msgdata.jdbc.user}"
+		p:password="${msgdata.jdbc.password}"/>
+		
+	<!-- ********************************定义 hibernate session factory******************************** -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingLocations">
+			<list>
+				<value>classpath:com/fs/**/pojo/*.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					${hibernate.dialect}
+				</prop>
+				<prop key="hibernate.show_sql">
+					${hibernate.show_sql}
+				</prop>
+				<prop key="hibernate.connection.provider_class">
+					${hibernate.connection.provider_class}
+				</prop>
+				<prop key="hibernate.c3p0.max_size">
+					${hibernate.c3p0.max_size}
+				</prop>
+				<prop key="hibernate.c3p0.min_size">
+					${hibernate.c3p0.min_size}
+				</prop>
+				<prop key="hibernate.c3p0.timeout">
+					${hibernate.c3p0.timeout}
+				</prop>
+				<prop key="hibernate.c3p0.maxIdleTime">
+					${hibernate.c3p0.maxIdleTime}
+				</prop>
+				<prop key="hibernate.c3p0.max_statements">
+					${hibernate.c3p0.max_statements}
+				</prop>
+				<prop key="hibernate.c3p0.idle_test_period">
+					${hibernate.c3p0.idle_test_period}
+				</prop>
+				<prop key="hibernate.c3p0.acquire_increment">
+					${hibernate.c3p0.acquire_increment}
+				</prop>
+				<prop key="hibernate.c3p0.validate">
+					${hibernate.c3p0.validate}
+				</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="customSessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingLocations">
+			<list>
+				<value>classpath:com/fs/**/map/*.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					${hibernate.dialect}
+				</prop>
+				<prop key="hibernate.show_sql">
+					${hibernate.show_sql}
+				</prop>
+				<prop key="hibernate.connection.provider_class">
+					${hibernate.connection.provider_class}
+				</prop>
+				<prop key="hibernate.c3p0.max_size">
+					${hibernate.c3p0.max_size}
+				</prop>
+				<prop key="hibernate.c3p0.min_size">
+					${hibernate.c3p0.min_size}
+				</prop>
+				<prop key="hibernate.c3p0.timeout">
+					${hibernate.c3p0.timeout}
+				</prop>
+				<prop key="hibernate.c3p0.maxIdleTime">
+					${hibernate.c3p0.maxIdleTime}
+				</prop>
+				<prop key="hibernate.c3p0.max_statements">
+					${hibernate.c3p0.max_statements}
+				</prop>
+				<prop key="hibernate.c3p0.idle_test_period">
+					${hibernate.c3p0.idle_test_period}
+				</prop>
+				<prop key="hibernate.c3p0.acquire_increment">
+					${hibernate.c3p0.acquire_increment}
+				</prop>
+				<prop key="hibernate.c3p0.validate">
+					${hibernate.c3p0.validate}
+				</prop>
+				<prop key="hibernate.hbm2ddl.auto">
+					update
+				</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- ********************************定义JDBC******************************** -->
+	<!-- 
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean> -->
+	<!-- ********************************定义事务管理器******************************** -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- ********************************定义事务拦截规则******************************** -->
+	<bean id="transactionProxy" abstract="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="transactionAttributes">
+			<value>
+				find*=PROPAGATION_REQUIRED,readOnly
+				get*=PROPAGATION_REQUIRED,readOnly
+				query*=PROPAGATION_REQUIRED,readOnly
+				*=PROPAGATION_REQUIRED,-Exception
+			</value>
+		</property>
+	</bean>
+	<!-- ********************************定义AOP切面******************************** -->
+	<aop:aspectj-autoproxy /><!-- 自动装载aop -->
+	<bean id="log" class="com.fs.util.aop.log.BusinessLogAspect"/><!-- 切面定义（采用注解的方式定义及使用） -->
+</beans>

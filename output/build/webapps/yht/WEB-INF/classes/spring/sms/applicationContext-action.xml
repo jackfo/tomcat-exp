@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+		
+	<!-- ********************************短信管理模块******************************** -->
+	<bean id="smTemplateAction" class="com.fs.sms.action.SmTemplateAction" scope="prototype"
+		p:smTemplateService-ref="smTemplateService"/>
+	<bean id="smSendMsgAction" class="com.fs.sms.action.SmSendMsgAction" scope="prototype"
+		p:operatorService-ref="operatorService" p:organService-ref="organizationService"
+		p:attachmentService-ref="attachmentService" p:sendMsgService-ref="smSendMsgService"
+		p:contactsService-ref="contactsService" p:conGroupService-ref="conGroupService"/>
+	<bean id="smSendTaskAction" class="com.fs.sms.action.SmSendTaskAction" scope="prototype"
+		p:sendTaskService-ref="smSendTaskService"/>
+	<bean id="smSendResultAction" class="com.fs.sms.action.SmSendResultAction" scope="prototype"
+		p:sendmsgService-ref="sendmsgService"
+		p:sendMsgService-ref="smSendMsgService"/>
+	<bean id="smReceivedAction" class="com.fs.sms.action.SmReceivedAction" scope="prototype"
+		p:recvMsgService-ref="smRecvMsgService" p:attachmentService-ref="attachmentService"
+		p:sendMsgService-ref="smSendMsgService" p:patientsService-ref="patientsService"
+		p:pregnantWomanService-ref="pregnantWomanService" p:childService-ref="childService"
+		p:operatorService-ref="operatorService"  p:receiveBoxService-ref="receiveBoxService"/>
+	<bean id="smChartAction" class="com.fs.sms.action.SmChartAction" scope="prototype"
+		p:recvMsgService-ref="smRecvMsgService" p:sendTotalService-ref="smSendTotalService"
+		p:threadPool-ref="baseThreadPool" />
+	<bean id="smVoteAction" class="com.fs.sms.action.SmVoteAction" scope="prototype"
+		p:voteService-ref="smVoteService" p:templateService-ref="smTemplateService"
+		p:attachmentService-ref="attachmentService" p:threadPool-ref="baseThreadPool"
+		p:sendMsgService-ref="smSendMsgService"/>
+	<bean id="publishMsgAction" class="com.fs.sms.action.PublishMsgAction" scope="prototype"
+		p:publishMsgService-ref="publishMsgService" p:attachmentService-ref="attachmentService" 
+		p:sendMsgService-ref="smSendMsgService"/>
+</beans>

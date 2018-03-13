@@ -1,0 +1,11 @@
+Manifest-version: 1.0
+X-Compile-Source-JDK: 1.7
+X-Compile-Target-JDK: 1.7
+
+Name: javax/servlet/
+Specification-Title: Java API for Servlets (Annotations)
+Specification-Version: 3.0
+Specification-Vendor: Sun Microsystems, Inc.
+Implementation-Title: javax.servlet
+Implementation-Version: 3.0.FR
+Implementation-Vendor: Apache Software Foundation

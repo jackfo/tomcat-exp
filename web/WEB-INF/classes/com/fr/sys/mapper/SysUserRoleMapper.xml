@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fr.sys.mapper.SysUserRoleMapper">
+
+  <resultMap id="BaseResultMap" type="com.fr.sys.model.SysUserRole">
+    <id column="user_login_id" jdbcType="VARCHAR" property="userLoginId" />
+    <id column="role_id" jdbcType="VARCHAR" property="roleId" />
+  </resultMap>
+    <!-- 在select标签中编写查询的SQL语句， 设置select标签的id属性为getUser，id属性值必须是唯一的，不能够重复
+    使用parameterType属性指明查询时使用的参数类型，resultType属性指明查询返回的结果集类型
+    resultType="me.gacl.domain.User"就表示将查询结果封装成一个User类的对象返回
+    User类就是users表所对应的实体类
+    -->
+    <!--根据userLoginId获取对应的SysUserRoleMap-->
+    <select id="getRoleList" parameterType="String" resultType="com.fr.sys.model.SysUserRole">
+        select * from sys_user_role where user_login_id=#{userLoginId}
+    </select>
+
+    <select id="getSysUserWithRole" parameterType="String" resultMap="getSysUserWithRoleMap">
+        select * from sys_user where user_login_id=#{userLoginId}
+    </select>
+
+    <resultMap id="getSysUserWithRoleMap" type="com.fr.sys.model.SysUser">
+        <id column="user_login_id" property="userLoginId" />
+        <result column="user_name" property="userName" />
+        <result column="sex" property="sex" />
+        <result column="password" property="password" />
+        <!--select语句是针对与集合中的查询类型-->
+        <collection column="user_login_id"  ofType="String" property="roleList" select="sysUserRoleList">
+        </collection>
+    </resultMap>
+
+    <select id="sysUserRoleList" parameterType="String" resultType="String">
+        select role_id from sys_user_role where user_login_id=#{user_login_id}
+    </select>
+
+
+</mapper>

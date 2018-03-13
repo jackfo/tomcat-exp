@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fr.sys.mapper.CmDepartmentEmployeeMapper">
+  <resultMap id="BaseResultMap" type="com.fr.sys.model.CmDepartmentEmployee">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="department_id" jdbcType="VARCHAR" property="departmentId" />
+    <id column="employee_id" jdbcType="VARCHAR" property="employeeId" />
+  </resultMap>
+  
+  <select id="deleteByEmployeeId" parameterType="String" resultType="Integer">
+    DELETE FROM cm_department_employee WHERE employee_id = #{employeeId}
+  </select>
+
+  <select id="deleteByDepartmentId" parameterType="String" resultType="Integer">
+    DELETE FROM cm_department_employee WHERE department_id = #{departmentId}
+  </select>
+
+</mapper>

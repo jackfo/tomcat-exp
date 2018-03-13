@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	<bean id="cusFormAction" class="com.fs.custom.action.FormAction" scope="prototype"
+		p:formService-ref="cusFormService" p:connectionService-ref="cusDBConnectionService"
+		p:menuService-ref="menuService" p:buttonService-ref="buttonService"/>
+	<bean id="cusDBDriverAction" class="com.fs.custom.action.DBDriverAction" scope="prototype"
+		p:driverService-ref="cusDBDriverService"/>
+	<bean id="cusDBConnectionAction" class="com.fs.custom.action.DBConnectionAction" scope="prototype"
+		p:connectionService-ref="cusDBConnectionService" p:driverService-ref="cusDBDriverService"/>
+	<bean id="cusDynamicTableAction" class="com.fs.custom.action.DynamicTableAction" scope="prototype"
+		p:dynamicTableService-ref="cusDynamicTableService" p:formService-ref="cusFormService"
+		p:attributeService-ref="cusFormAttributeService"/>
+	<bean id="dataOptAction" class="com.fs.custom.action.DataOptAction" scope="prototype"
+		p:driverService-ref="cusDBDriverService" p:connectionService-ref="cusDBConnectionService"
+		p:formService-ref="cusFormService" p:dynamicTableService-ref="cusDynamicTableService" 
+		p:attributeService-ref="cusFormAttributeService"/>
+</beans>

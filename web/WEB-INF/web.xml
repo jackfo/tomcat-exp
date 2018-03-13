@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring-mvc.xml,classpath:spring-mybatis.xml,classpath:spring-security.xml</param-value>
+    </context-param>
+
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <!--
+        ①HttpServletBean.init方法中执行initServletBean方法进行初始化操作，
+            当然该方法在HttpServletBean是空方法，所以需要子类重写。
+
+        ②FrameworkServlet.initServletBean子类不负众望，重写了initServletBean方法，
+            该方法最核心的操作就是调用initWebApplicationContext()执行上下文Bean初始化。
+
+        ③FrameworkServlet.initWebApplicationContext方法首先获取自己的双亲上下文（也就是ContextLoaderListener初始化成功的WebApplicationContext）；
+            然后创建或者获取当前Servelet的WebApplicationContext。
+
+        ④无论是自己创建还是获取现有的WebApplicationContext，
+            最终都会让Servelt级别的WebApplicationContext执行configureAndRefreshWebApplicationContext()方法进行上下文容器初始化
+    -->
+    <servlet>
+        <servlet-name>springMvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring-mvc.xml,classpath:spring-mybatis.xml,classpath:spring-security.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>springMvc</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>httpHeaderSecurity</filter-name>
+        <filter-class>org.apache.catalina.filters.HttpHeaderSecurityFilter</filter-class>
+        <init-param>
+            <param-name>antiClickJackingOption</param-name>
+            <param-value>SAMEORIGIN</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>httpHeaderSecurity</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>characterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>characterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Spring 容器启动监听器 -->
+    <!--
+        ContextLoaderListener基于Web上下文级别的监听器在启动服务器时就创建ApplicationContext并且将配置的Spring Bean加载到XML中
+        ①启动项目时触发contextInitialized方法，
+            该方法就做一件事：通过父类contextLoader的initWebApplicationContext方法创建Spring上下文对象。
+
+        ②initWebApplicationContext方法做了三件事：
+            创建WebApplicationContext；
+            加载对应的Spring文件创建里面的Bean实例；
+            将WebApplicationContext放入ServletContext（就是Java Web的全局变量）中。
+
+        ③createWebApplicationContext创建上下文对象，支持用户自定义的上下文对象，
+            但必须继承自ConfigurableWebApplicationContext，而Spring MVC默认使用ConfigurableWebApplicationContext作为ApplicationContext（它仅仅是一个接口）的实现。
+
+        ④configureAndRefreshWebApplicationContext方法用于封装ApplicationContext数据并且初始化所有相关Bean对象。
+            它会从web.xml中读取名为contextConfigLocation的配置，这就是spring xml数据源设置，
+            然后放到ApplicationContext中，最后调用传说中的refresh方法执行所有Java对象的创建。
+
+        ⑤完成ApplicationContext创建之后就是将其放入ServletContext中，注意它存储的key值常量。
+    -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!--系统欢迎页-->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>tomcat protect page</web-resource-name>
+            <!-- /protect目录下的所有资源是受保护的 -->
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <!-- 这里的member要与tomcat-user.xml中配置的role一致 -->
+            <role-name>member</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/jsp/login.jsp</form-login-page>
+            <form-error-page>/error.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+
+
+</web-app>

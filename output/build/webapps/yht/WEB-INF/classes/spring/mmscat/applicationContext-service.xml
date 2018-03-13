@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	
+	<!-- ********************************彩信管理模块******************************** -->
+	<bean id="msgFailedBoxService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.mmscat.service.imp.MsgFailedBoxServiceImp"
+				p:msgFailedBoxDao-ref="msgFailedBoxDao"/>
+		</property>
+	</bean>	
+	<bean id="msgInBoxService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.mmscat.service.imp.MsgInBoxServiceImp"
+				p:msgInBoxDao-ref="msgInBoxDao"/>
+		</property>
+	</bean>	
+	<bean id="msgOutBoxService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.mmscat.service.imp.MsgOutBoxServiceImp"
+				p:msgOutBoxDao-ref="msgOutBoxDao"/>
+		</property>
+	</bean>	
+	<bean id="msgSentBoxService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.mmscat.service.imp.MsgSentBoxServiceImp"
+				p:msgSentBoxDao-ref="msgSentBoxDao"/>
+		</property>
+	</bean>	
+</beans>

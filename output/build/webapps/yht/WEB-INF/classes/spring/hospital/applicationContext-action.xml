@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	
+	<!-- ********************************疫苗类型模块******************************** -->
+	<bean id="vaccineTypeAction" class="com.fs.hospital.action.VaccineTypeAction" scope="prototype"
+		p:vaccineTypeService-ref="vaccineTypeService"/>
+		
+	<!-- ********************************  患者模块  ******************************** -->
+	<bean id="patientsAction" class="com.fs.hospital.action.PatientsAction" scope="prototype"
+		p:patientsService-ref="patientsService" p:msgDataSource-ref="msgDataSource" />
+	
+	<!-- ********************************  儿童模块  ******************************** -->
+	<bean id="childAction" class="com.fs.hospital.action.ChildAction" scope="prototype"
+		p:childService-ref="childService"/>
+	
+	<!-- ********************************  孕妇模块  ******************************** -->
+	<bean id="womenAction" class="com.fs.hospital.action.PregnantWomanAction" scope="prototype"
+		p:pregnantWomanService-ref="pregnantWomanService"/>
+	
+	<!-- ********************************  同步参数模块  ******************************** -->
+	<bean id="syncParamAction" class="com.fs.hospital.action.SyncParamAction" scope="prototype"
+		p:syncParamService-ref="syncParamService" p:timerService-ref="timerService" />
+	
+	<!-- ********************************  自定义回复模块  ******************************** -->
+	<bean id="receivedDefinitionAction" class="com.fs.hospital.action.ReceivedDefinitionAction" scope="prototype"
+		p:receivedDefinitionService-ref="receivedDefinitionService" />
+</beans>

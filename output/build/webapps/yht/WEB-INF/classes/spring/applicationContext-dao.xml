@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	<!-- ********************************基础模块********************************-->
+	<bean id="operatorDao" class="com.fs.base.dao.imp.OperatorDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory"/>
+	<bean id="roleDao" class="com.fs.base.dao.imp.RoleDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory"/>
+	<bean id="menuDao" class="com.fs.base.dao.imp.MenuDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory"/>
+	<bean id="organizationDao" class="com.fs.base.dao.imp.OrganizationDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory"/>
+	<bean id="buttonDao" class="com.fs.base.dao.imp.ButtonDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory"/>
+	<bean id="logDao" class="com.fs.base.dao.imp.LogDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory"/>
+	<bean id="paramDao" class="com.fs.base.dao.imp.FParamDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory"/>
+	<bean id="attachmentDao" class="com.fs.base.dao.imp.AttachmentDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory"/>
+	<bean id="contactsDao" class="com.fs.base.dao.imp.ContactsDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory" p:dataSource-ref="dataSource"/>
+	<bean id="conGroupDao" class="com.fs.base.dao.imp.ConGroupDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory"/>
+	<bean id="argumentDao" class="com.fs.base.dao.imp.ArgumentDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory"/>
+	<bean id="timerDao" class="com.fs.base.dao.imp.TimerDaoImp" autowire="byName"
+		p:sessionFactory-ref="sessionFactory"/>
+</beans>

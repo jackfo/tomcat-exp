@@ -1,0 +1,10 @@
+<Context Path="/test" docBase="/project/tomcat-pro/web" >
+    <Realm className="org.apache.catalina.realm.JDBCRealm" debug="99"
+           driverName="com.mysql.jdbc.Driver"
+           connectionURL="jdbc:mysql://localhost:3306/tomcat?useUnicode=true&amp;characterEncoding=utf-8"
+           connectionName="root" connectionPassword="fadp"
+           userTable="users" userNameCol="user_name" userCredCol="user_pass"
+           userRoleTable="user_roles" roleNameCol="role_name" />
+
+    <!--userCredCol 显示字段 userNameCol查找条件字段   userTable表名  userRoleTable角色表表名 roleNameCol查询角色表的相关列 -->
+</Context>

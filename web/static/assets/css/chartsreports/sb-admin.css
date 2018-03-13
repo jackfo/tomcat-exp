@@ -1,0 +1,94 @@
+/* Global Styles */
+#wrapper {
+	padding-left: 0;
+}
+
+#page-wrapper {
+	width: 100%;
+	padding: 0;
+	background-color: #fff;
+}
+
+.huge {
+	font-size: 50px;
+	line-height: normal;
+}
+
+@media ( min-width :768px) {
+	#wrapper {
+		padding-left: 225px;
+	}
+	#page-wrapper {
+		padding: 10px;
+	}
+}
+
+/* Flot Chart Containers */
+.flot-chart {
+	display: block;
+	height: 400px;
+}
+
+.flot-chart-content {
+	width: 100%;
+	height: 100%;
+}
+
+/* Custom Colored Panels */
+.huge {
+	font-size: 40px;
+}
+
+.panel-green {
+	border-color: #5cb85c;
+}
+
+.panel-green .panel-heading {
+	border-color: #5cb85c;
+	color: #fff;
+	background-color: #5cb85c;
+}
+
+.panel-green a {
+	color: #5cb85c;
+}
+
+.panel-green a:hover {
+	color: #3d8b3d;
+}
+
+.panel-red {
+	border-color: #d9534f;
+}
+
+.panel-red .panel-heading {
+	border-color: #d9534f;
+	color: #fff;
+	background-color: #d9534f;
+}
+
+.panel-red a {
+	color: #d9534f;
+}
+
+.panel-red a:hover {
+	color: #b52b27;
+}
+
+.panel-yellow {
+	border-color: #f0ad4e;
+}
+
+.panel-yellow .panel-heading {
+	border-color: #f0ad4e;
+	color: #fff;
+	background-color: #f0ad4e;
+}
+
+.panel-yellow a {
+	color: #f0ad4e;
+}
+
+.panel-yellow a:hover {
+	color: #df8a13;
+}

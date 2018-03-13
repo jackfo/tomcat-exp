@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	
+	<!-- ********************************短信管理模块******************************** -->
+	<bean id="smTemplateService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.sms.service.imp.SmTemplateServiceImp"
+				p:smTemplateDao-ref="smTemplateDao"/>
+		</property>
+	</bean>
+	<bean id="smSendMsgService" parent="transactionProxy">
+		<property name="target">
+		<bean class="com.fs.sms.service.imp.SmSendMsgServiceImp"
+		p:smSendMsgDao-ref="smSendMsgDao" p:forbiddenMobileDao-ref="forbiddenMobileDao"
+		p:logDao-ref="logDao" />
+		</property>
+		</bean>
+	<bean id="smSendTaskService" class="com.fs.sms.service.imp.SmSendTaskServiceImp"
+		p:sendTaskDao-ref="smSendTaskDao"   />
+	<bean id="smRecvMsgService" class="com.fs.sms.service.imp.SmRecvMsgServiceImp"
+		p:smRecvMsgDao-ref="smRecvMsgDao"/>
+	<bean id="smSendTotalService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.sms.service.imp.SmSendTotalServiceImp"
+				p:smSendTotalDao-ref="smSendTotalDao"/>
+		</property>
+	</bean>
+	<bean id="smVoteService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.sms.service.imp.SmVoteServiceImp"
+				p:voteDao-ref="smVoteDao" p:templateDao-ref="smTemplateDao"/>
+		</property>
+	</bean>
+	<bean id="publishMsgService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.sms.service.imp.PublishMsgServiceImp"
+				p:publishMsgDao-ref="publishMsgDao"/>
+		</property>
+	</bean>
+	<bean id="sendmsgService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.sms.service.imp.SendMsgServiceImp"
+				p:sendMsgDao-ref="sendMsgDao"/>
+		</property>
+	</bean>
+	<bean id="receiveBoxService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.sms.service.imp.ReceiveBoxServiceImp"
+				p:receiveBoxDao-ref="receiveBoxDao"/>
+		</property>
+	</bean>
+	<bean id="replyBoxService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.sms.service.imp.ReplyBoxServiceImp"
+				p:replyBoxDao-ref="replyBoxDao"/>
+		</property>
+	</bean>
+</beans>

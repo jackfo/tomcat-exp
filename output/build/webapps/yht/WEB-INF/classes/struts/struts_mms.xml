@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="mms" namespace="/mms" extends="defaultConfig">
+		<action name="mmSend" class="mmSendAction">
+			<interceptor-ref name="fileUpload">
+				<!-- 配置允许上传的文件类型，多个用","分隔 -->
+				<param name="isRecord">true</param>
+				<param name="allowedTypes">*/*</param>
+				<!-- 配置允许上传的文件大小，单位字节 -->
+				<param name="maximumSize">1024000</param>
+				<param name="attachmentStatus">0</param>
+			</interceptor-ref>
+			<!-- 不能加载默认的拦截器堆，因为默认拦截器堆中都加载了上传拦截器，
+				所以不可以，如果不加载自定义的baseStack堆，则没有自定义拦截器 -->
+			<interceptor-ref name="baseStack" />
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+			<result name="input">${failPath}</result>
+		</action>
+		<action name="mmReceive" class="mmReceiveAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		<action name="mmsWaite" class="mmsWaiteAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		<action name="template" class="mmTemplateAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		<action name="mmsResult" class="mmsResultAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		<action name="mmSendTask" class="mmSendTaskAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		<action name="chart" class="mmChartAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+	</package>
+</struts>

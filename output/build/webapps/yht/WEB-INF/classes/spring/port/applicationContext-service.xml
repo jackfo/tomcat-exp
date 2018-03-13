@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	<!-- ********************************配置邮件信息******************************** -->
+    <bean class="com.fs.port.mail.MailConfig">
+    	<property name="status" value="${email.status}"></property>
+    	<property name="userName" value="${email.userName}"></property>
+    	<property name="password" value="${email.password}"></property>
+    	<property name="smtp" value="${email.smtp}"></property>
+    	<property name="receive" value="${email.receive}"></property>
+    </bean>
+	
+	<!-- ********************************有接口的院长日报模块******************************** -->
+	<bean id="portDeanService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.port.service.imp.DeanServiceImp"
+				p:portDeanDao-ref="portDeanDao" p:smSendMsgDao-ref="smSendMsgDao" 
+				p:syncParamDao-ref="syncParamDao" />
+		</property>
+
+	</bean>
+	
+	<!-- ********************************有接口的院后随访模块******************************** -->
+	<bean id="followService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.port.service.imp.FollowServiceImp"
+				p:followDao-ref="followDao" p:smSendMsgDao-ref="smSendMsgDao" 
+				p:syncParamDao-ref="syncParamDao" />
+		</property>
+
+	</bean>
+	
+	<!-- ********************************有接口的入院关怀模块******************************** -->
+	<bean id="comeService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.port.service.imp.ComeServiceImp"
+				p:comeDao-ref="comeDao" p:smSendMsgDao-ref="smSendMsgDao" 
+				p:syncParamDao-ref="syncParamDao" />
+		</property>
+
+	</bean>
+	
+	<!-- ********************************有接口的住院费用模块******************************** -->
+	<bean id="billsService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.port.service.imp.BillsServiceImp"
+				p:billsDao-ref="billsDao" p:smSendMsgDao-ref="smSendMsgDao" 
+				p:syncParamDao-ref="syncParamDao" />
+		</property>
+	</bean>
+	
+	<!-- ********************************有接口的余额提醒模块******************************** -->
+	<bean id="balanceService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.port.service.imp.BalanceServiceImp"
+				p:balanceDao-ref="balanceDao" p:smSendMsgDao-ref="smSendMsgDao" 
+				p:syncParamDao-ref="syncParamDao" />
+		</property>
+	</bean>
+	
+	<!-- ********************************有接口的检验报告模块******************************** -->
+	<bean id="lisService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.port.service.imp.LisServiceImp"
+				p:lisDao-ref="lisDao" p:smSendMsgDao-ref="smSendMsgDao" 
+				p:syncParamDao-ref="syncParamDao" />
+		</property>
+	</bean>
+</beans>

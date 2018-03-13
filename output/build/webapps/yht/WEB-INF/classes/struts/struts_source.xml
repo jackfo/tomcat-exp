@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="source" namespace="/source" extends="defaultConfig">
+		<action name="fbMobile" class="forbiddenMobileAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		<action name="mmPicTypeBean" class="mmPicTypeBeanAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		<action name="mmMusicTypeBean" class="mmMusicTypeBeanAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		
+		<action name="mmPicBean" class="mmPicBeanAction">
+			<interceptor-ref name="orgFileUpload">
+				<!-- 配置允许上传的文件类型，多个用","分隔 -->
+				<param name="allowedTypes">*/*</param>
+				<!-- 配置允许上传的文件大小，单位字节 -->
+				<param name="maximumSize">97280</param>
+				<param name="attachmentStatus">0</param>
+			</interceptor-ref>
+			<interceptor-ref name="baseStack" />
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+			<result name="input">${failPath}</result>
+		</action>
+		
+		<action name="forbiddenWord" class="forbiddenWordAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		
+		<action name="mmMusicBean" class="mmMusicBeanAction">
+			<interceptor-ref name="orgFileUpload">
+				<!-- 配置允许上传的文件类型，多个用","分隔 -->
+				<param name="allowedTypes">*/*</param>
+				<!-- 配置允许上传的文件大小，单位字节 -->
+				<param name="maximumSize">46080</param>
+				<param name="attachmentStatus">0</param>
+			</interceptor-ref>
+			<interceptor-ref name="baseStack" />
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+			<result name="input">${failPath}</result>
+		</action>
+		
+	</package>
+</struts>

@@ -1,0 +1,8 @@
+.selectContainer{display:inline-block;margin:0px;padding:0px;width:190px;line-height:23px;text-align:left;border:0px solid red;overflow:hidden;}
+.selectContainer .title{display:inline-block;text-align:right;width:55px;height:23px;line-height:23px;}
+.delSelectSpan{display:inline-block;width:20px;color:red;font-size:12pt;text-align:center;height:23px;line-height:22px;overflow:hidden;}
+.delSelectSpan a{display:inline-block;width:20px;height:23px;color:red;font-size:12pt;}
+.delSelectSpan a:visited{color:red;font-size:12pt;}
+.delSelectSpan a:hover{color:#F89F47;font-size:12pt;}
+.delSelectSpan a:active{position:relative;top:1px;left:1px;font-weight:900;}
+.VOTE_TYPE,.VOTE_BTN{padding:3px;margin-left:20px;}

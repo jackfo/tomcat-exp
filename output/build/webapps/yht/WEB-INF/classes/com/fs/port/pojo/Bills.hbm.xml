@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+	住院费用表
+-->
+<hibernate-mapping package="com.fs.port.pojo">
+	<class name="Bills" table="FS_THIRD_BILLS">
+		<id name="id" type="java.lang.Integer" column="ID">
+			<generator class="increment" />
+		</id>
+		<!-- 病人ID -->
+		<property name="patientId" column="PATIENT_ID" type="string" />
+		<!-- 用户名 -->
+		<property name="name" column="NAME" type="string" />
+		<!-- 性别 -->
+		<property name="sex" column="SEX" type="string" />
+		<!-- 费用 -->
+		<property name="chargePrice" column="CHARGE_PRICE" type="float" />
+		<!-- 余额值 -->
+		<property name="balance" column="BALANCE" type="float" />
+		<!-- 手机号 -->
+		<property name="homeTel" column="HOME_TEL" type="string" />
+		<!-- 收费时间 -->
+		<property name="chargeDate" column="CHARGE_DATE" type="java.sql.Timestamp"/>
+		<!-- 发送状态 -->
+		<property name="status" column="STATUS" type="java.lang.Integer" />
+	</class>
+</hibernate-mapping>

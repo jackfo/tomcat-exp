@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="">
+	<class name="com.fs.base.pojo.Attachment" table="FS_ATTACH">
+		<id name="id" type="java.lang.Integer">
+			<column name="ATT_ID"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" column="ATT_NAME" type="java.lang.String" length="256"/>
+		<property name="ext" column="ATT_TYPE" type="java.lang.String" length="128"/>
+		<property name="path" column="ATT_PATH" type="java.lang.String" length="256"/>
+		<property name="size" column="ATT_SIZE" type="java.lang.Long"/>
+		<property name="date" column="ATT_DATE" type="java.sql.Timestamp"/>
+		<property name="status" column="ATT_STATUS" type="java.lang.Integer"/>
+	</class>
+</hibernate-mapping>

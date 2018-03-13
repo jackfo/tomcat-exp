@@ -1,0 +1,7 @@
+01-Aug-2017 08:08:48.123 信息 [main] org.apache.catalina.startup.LoggingBaseTest.setUp Starting test case [testBug53301]
+01-Aug-2017 08:08:48.442 信息 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-127.0.0.1-auto-1"]
+01-Aug-2017 08:08:48.464 信息 [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+01-Aug-2017 08:08:48.466 信息 [main] org.apache.catalina.core.StandardService.startInternal Starting service Tomcat
+01-Aug-2017 08:08:48.466 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/@VERSION@
+01-Aug-2017 08:08:48.582 信息 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-127.0.0.1-auto-1-64368"]
+01-Aug-2017 08:10:04.310 信息 [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-127.0.0.1-auto-1-64368"]

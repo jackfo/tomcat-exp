@@ -1,0 +1,9 @@
+01-Aug-2017 08:23:06.694 信息 [main] org.apache.catalina.startup.LoggingBaseTest.setUp Starting test case [testGetResource]
+01-Aug-2017 09:04:27.286 信息 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-127.0.0.1-auto-1"]
+01-Aug-2017 09:04:27.307 信息 [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+01-Aug-2017 09:04:27.308 信息 [main] org.apache.catalina.core.StandardService.startInternal Starting service Tomcat
+01-Aug-2017 09:04:27.308 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/@VERSION@
+01-Aug-2017 09:04:27.402 信息 [localhost-startStop-1] org.apache.catalina.startup.ContextConfig.getDefaultWebXmlFragment No global web.xml found
+01-Aug-2017 09:04:27.616 信息 [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-Aug-2017 09:04:27.617 信息 [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-Aug-2017 14:11:21.410 信息 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-127.0.0.1-auto-1-49272"]

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="">
+	<class name="com.fs.hospital.pojo.PregnantWoman" table="FS_PREGNANT_WOMAN"><!-- 孕妇 -->
+		<id name="id" type="java.lang.Integer">
+			<column name="WOM_ID"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" column="WOM_NAME" type="java.lang.String" />
+		<property name="age" column="WOM_AGE" type="java.lang.Integer" />
+		<property name="firstInspectionTime" column="WOM_FIRSTTIME" type="java.sql.Timestamp" />
+		<property name="expectedDate"  column="WOM_EXPECT_DATE"  type="java.sql.Timestamp" />
+		<property name="lastMenstrual"  column="WOM_LASTMENSTRUAL"  type="java.sql.Timestamp" />
+		<property name="phone" column="WOM_PHONE" type="java.lang.String" />
+		<property name="education" column="WOM_EDUCATION" type="java.lang.String" />
+		<property name="womenType" column="WOM_TYPE" type="java.lang.Integer" />
+		<property name="count" column="WOM_COUNT" type="java.lang.Integer" />
+		<property name="addr" column="WOM_ADDR" type="java.lang.String" />
+		<property name="visitRecord" column="WOM_RECORD" type="java.lang.String" />
+		<property name="messageDesc" column="WOM_MESSAGE_DESC" type="java.lang.String" />
+	</class>
+</hibernate-mapping>

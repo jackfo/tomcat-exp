@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	<bean id="cusFormService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.custom.service.imp.FormServiceImp"
+				p:formDao-ref="cusFormDao" p:paramDao-ref="paramDao"
+				p:templateDao-ref="smTemplateDao"/>
+		</property>
+	</bean>
+	<bean id="cusFormAttributeService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.custom.service.imp.FormAttributeServiceImp"
+				p:formAttributeDao-ref="cusFormAttributeDao"/>
+		</property>
+	</bean>
+	<bean id="cusDBDriverService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.custom.service.imp.DBDriverServiceImp"
+				p:driverDao-ref="cusDBDriverDao"/>
+		</property>
+	</bean>
+	<bean id="cusDBConnectionService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.custom.service.imp.DBConnectionServiceImp"
+				p:connectionDao-ref="cusDBConnectionDao"/>
+		</property>
+	</bean>
+	<bean id="cusDynamicTableService" class="com.fs.custom.service.imp.DynamicTableServiceImp"
+		p:dynamicTableDao-ref="cusDynamicTableDao"/>
+</beans>

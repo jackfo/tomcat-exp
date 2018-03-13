@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="">
+	<class name="com.fs.base.pojo.TimerData" table="FS_TIMER">
+		<id name="id" type="java.lang.Integer">
+			<column name="ID"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" column="NAME" type="string"/>
+		<property name="describe" column="DESC_CONTENT" type="string"/>
+		<property name="updateTime" column="UPDATETIME" type="timestamp"/>
+		
+		<property name="status" column="STATUS" type="integer"/>
+		<property name="type" column="TYPE" type="integer"/>
+		<property name="level" column="LEVEL" type="integer"/>
+		<property name="service" column="SERVICE" type="string"/>
+		<property name="cronExpression" column="CRONEXPRESSION" type="string"/>
+		<property name="cronTime" column="CRONTIME" type="string"/>
+		<property name="cronFmt" column="CRONFMT" type="string"/>
+		
+	</class>
+</hibernate-mapping>

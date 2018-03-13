@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="resource"/>
+	<classpathentry kind="src" path="generator"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring-4.3.12.RELEASE"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring MVC-4.3.12.RELEASE"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/aopalliance-1.0"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/druid-1.0.17"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mysql-connector-java-5.1.28-bin"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring-security-config-4.0.3.RELEASE"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jstl-impl-1.2.2"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/activation-1.1"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/commons-codec-1.10"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/commons-net-3.3"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/fastjson-1.2.7"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/slf4j-api-1.7.7"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/icu4j-52_1"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/commons-beanutils-1.9.2"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jakarta-oro-2.0.8"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/xstream-1.4.6"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/xercesImpl-2.11.0"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/juel-impl-2.2.7"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/clhm-release-1.0-lru"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jdbm-1.0-SNAPSHOT"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/owasp-java-html-sanitizer-r239"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/esapi-2.1.0"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/xml-apis-1.4.01"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mybatis-generator-core-1.3.5"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javax.persistence"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mybatis-spring-1.3.1"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mybatis-3.4.5"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring-security-taglibs-4.0.3.RELEASE"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/servlet-api"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/pagehelper-5.1.2"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jsqlparser-1.1"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jstl-1.2"/>
+	<classpathentry kind="output" path="web/WEB-INF/classes"/>
+</classpath>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="">
+	<class name="com.fs.base.pojo.FParam" table="FS_PARAM">
+		<id name="id" type="java.lang.Integer">
+			<column name="PARAM_ID"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" column="PARAM_NAME" type="java.lang.String" length="64"/>
+		<property name="mark" column="PARAM_MARK" type="java.lang.String" length="32"/>
+		<property name="desc" column="PARAM_DESC" type="java.lang.String" length="1024"/>
+		<property name="droped" column="DROPED" type="java.lang.Integer"/>
+		<property name="taskSort" column="TASK_SORT" type="java.lang.String" length="32"/>
+		<many-to-one name="parent" class="com.fs.base.pojo.FParam" column="PARENT_ID"/>
+	</class>
+</hibernate-mapping>

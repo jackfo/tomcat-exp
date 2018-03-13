@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	
+	<!-- ********************************彩信管理模块******************************** -->
+	<bean id="mmSendService" class="com.fs.mms.service.imp.MmSendServiceImp"
+		p:mmSendDao-ref="mmSendDao" p:mmSendContentDao-ref="mmSendContentDao"
+		p:forbiddenMobileDao-ref="forbiddenMobileDao"/>	
+	<bean id="mmSendContentService" class="com.fs.mms.service.imp.MmSendContentServiceImp"
+		p:mmSendContentDao-ref="mmSendContentDao"/>	
+	<bean id="mmReceiveService" class="com.fs.mms.service.imp.MmReceiveServiceImp"
+		p:mmReceiveDao-ref="mmReceiveDao"/>	
+	<bean id="mmTemplateService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.mms.service.imp.MmTemplateServiceImp"
+				p:mmTemplateDao-ref="mmTemplateDao"/>
+		</property>
+	</bean>	
+	<bean id="mmSendTaskService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.mms.service.imp.MmSendTaskServiceImp"
+				p:mmSendTaskDao-ref="mmSendTaskDao"/>
+		</property>
+	</bean>	
+	<bean id="mmsResultService" class="com.fs.mms.service.imp.MmsResultServiceImp"
+		p:mmsResultDao-ref="mmsResultDao"/>	
+	<bean id="mmSendTotalService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.mms.service.imp.MmSendTotalServiceImp"
+				p:mmSendTotalDao-ref="mmSendTotalDao"/>
+		</property>
+	</bean>	
+</beans>

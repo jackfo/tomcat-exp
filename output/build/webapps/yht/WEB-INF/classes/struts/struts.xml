@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.multipart.maxSize" value="1000000000" />
+	<!-- struts2 spring整合 -->
+	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory" />
+	<!-- 开启使用开发模式，详细错误提示 -->
+	<constant name="struts.devMode" value="true" />
+	<!-- 指定每次配置文件更改后，自动重新加载 -->
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<!-- 指定字符类型-->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<!-- 加载错误信息 -->
+	<constant name="struts.custom.i18n.resources" value="message" />
+	<!-- 修改访问后缀 -->
+	<constant name="struts.action.extension" value="qt" />
+	<!-- 上传文件的临时文件位置 -->
+	
+	<!-- 添加模块(按模块来使用配置文件)-->
+	<include file="struts/struts_sms.xml"/>
+	<include file="struts/struts_mms.xml"/>
+	<include file="struts/struts_custom.xml"/>
+	<include file="struts/struts_source.xml"/>
+	<include file="struts/struts_meet.xml"/>
+	<include file="struts/struts_port.xml"/>
+	<include file="struts/struts_hospital.xml"/>
+	
+	<package name="defaultConfig" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="rightInterceptor" class="com.fs.util.fsInterceptor.RightInterceptor"></interceptor>
+			<interceptor name="logInterceptor" class="com.fs.util.fsInterceptor.LogInterceptor"></interceptor>
+			<interceptor name="fileUpload" class="com.fs.util.fsInterceptor.FileUploadInterceptor"></interceptor>
+			<interceptor name="orgFileUpload" class="org.apache.struts2.interceptor.FileUploadInterceptor"/>
+			
+			<interceptor-stack name="baseStack">
+				<interceptor-ref name="exception"/>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="chain"/>
+                <interceptor-ref name="debugging"/>
+                <interceptor-ref name="scopedModelDriven"/>
+                <interceptor-ref name="modelDriven"/>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="multiselect"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="actionMappingParams"/>
+                <interceptor-ref name="params">
+                  <param name="excludeParams">dojo\..*,^struts\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+ 				<interceptor-ref name="rightInterceptor"></interceptor-ref>	 	
+				<interceptor-ref name="logInterceptor"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 改变系统默认的拦截器,改成自己的默认拦截器,并且一个系统只能有一个默认的拦截器,这样这个拦截器栈会默认应用到所有的Action上去 -->
+		<default-interceptor-ref name="baseStack"></default-interceptor-ref>
+		
+		<global-results>
+			<result name="login" type="redirect">/login.jsp</result>
+		</global-results>
+	</package>
+	
+	<package name="dyCodeImage" namespace="/" extends="struts-default">
+		<action name="dyCodeImg" class="dyCodeAction"></action>
+	</package>
+	
+	<package name="base" namespace="/base" extends="defaultConfig">
+		<action name="account" class="operatorAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		<action name="menu" class="menuAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+			<result name="successChain" type="chain">${succesPath}</result>
+		</action>
+		<action name="organ" class="organizationAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		<action name="role" class="roleAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		<action name="log" class="logAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+			<result name="DOWNLOAD" type="stream">
+				<!-- contentType为二进制方式 -->
+				<param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+				<!-- attachment属性强调是下载,就不会主动打开,比如图片 -->
+				<!-- 使用经过转码的文件名作为下载文件名，downloadFileName属性对应action类中的方法 getDownloadFileName() -->
+				<param name="contentDisposition">
+					attachment;filename=${filename}
+				</param>
+				<param name="inputName">downloadFile</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+		<action name="param" class="paramAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		<action name="contacts" class="contactsAction">
+			<interceptor-ref name="fileUpload">
+				<!-- 配置是否保存到数据库中，默认为false -->
+				<param name="isRecord">false</param>
+				<!-- 配置允许上传的文件类型，多个用","分隔 -->
+				<param name="allowedTypes">application/vnd.ms-excel,application/octet-stream</param>
+				<!-- 配置允许上传的文件大小，单位字节 -->
+				<param name="maximumSize">10485760</param>
+				<param name="attachmentStatus">0</param>
+			</interceptor-ref>
+			<!-- 不能加载默认的拦截器堆，因为默认拦截器堆中都加载了上传拦截器，
+				所以不可以，如果不加载自定义的baseStack堆，则没有自定义拦截器 -->
+			<interceptor-ref name="baseStack" />
+			<result name="error">${failPath}</result>
+			<result name="input">${failPath}</result>
+			<result name="success">${succesPath}</result>
+			<result name="jump" type="redirect">${succesPath}</result>
+		</action>
+		<action name="argu" class="argumentAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		<action name="timer" class="timerDataAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+	</package>
+</struts>

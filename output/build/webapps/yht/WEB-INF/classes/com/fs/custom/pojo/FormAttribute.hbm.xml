@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.fs.custom.pojo">
+	<class name="FormAttribute" table="FS_FORM_ATTRIBUTE">
+		<id name="id" column="A_ID" type="java.lang.Long">
+			<generator class="increment" />
+		</id>
+		<property name="num" column="A_NUM" type="java.lang.Integer"/>
+		<property name="alias" column="A_ALIAS" type="java.lang.String" length="128"/>
+		<property name="label" column="A_LABEL" type="java.lang.String" length="64"/>
+		<property name="name" column="A_NAME" type="java.lang.String" length="64"/>
+		<property name="clazz" column="A_CLAZZ" type="java.lang.String" length="128"/>
+		<property name="length" column="A_LENGTH" type="java.lang.Integer"/>
+		<property name="nomal" column="A_NOMAL" type="java.lang.String" length="128"/>
+		<property name="required" column="A_REQUIRED" type="java.lang.Integer"/>
+		<property name="unique" column="A_UNIQUE" type="java.lang.Integer"/>
+		<property name="query" column="A_QUERY" type="java.lang.Integer"/>
+		<property name="list" column="A_LIST" type="java.lang.Integer"/>
+		<property name="mobile" column="A_MOBILE" type="java.lang.Integer"/>
+		<property name="format" column="A_FORMAT" type="java.lang.String" length="128"/>
+		<many-to-one name="form" column="A_F_ID" class="Form"/>
+	</class>
+</hibernate-mapping>

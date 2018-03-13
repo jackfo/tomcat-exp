@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	<!-- ********************************基础模块******************************** -->
+	<bean class="com.fs.util.SpringContextUtils" p:islog="${islog}" p:destAddr="${mas.destAddr}" p:serviceId="${mas.serviceId}"
+		p:systemPlat="${system.plat}" p:masDbPlat="${masdb.plat}" p:mmsVasId="${mas.mms.vasId}" p:eieDir="${mas.mms.eie}"
+		p:mmsServiceCode="${mas.mms.serviceCode}" p:mmsChargedPartyId="${mas.mms.chargedPartyId}" p:masAdminId="${mas.adminId}"
+		p:smilDir="${mas.mms.smil}" p:picDir="${mas.mms.pic}" p:txtDir="${mas.mms.txt}" p:musicDir="${mas.mms.audio}" p:phonesDir="${mas.mms.phones}"
+		p:masHasMmsCat="${mas.has.mmscat}" p:smilCatDir="${mas.mmscat.smil}" p:wsUsUser="${wsUsUser}" p:wsUsPass="${wsUsPass}" 
+		p:way="${sms.way}" p:sOpenUrl="${sms.sOpenUrl}" p:sDataUrl="${sms.sDataUrl}" p:account="${sms.account}" p:authkey="${sms.authkey}" p:cgid="${sms.cgid}"
+		p:csid="${sms.csid}" p:rsleep="${recrive.sleep}" p:rysleep="${ry.sleep}"/>
+	<bean id="baseThreadPool" class="com.fs.util.ThreadPool" init-method="init" p:corePoolSize="${sm.threadPool.corePoolSize}"
+		p:maximumPoolSize="${sm.threadPool.maximumPoolSize}" p:queuePoolSize="${sm.threadPool.queuePoolSize}"
+		p:keepAliveTime="${sm.threadPool.keepAliveTime}" />
+	<bean id="operatorService" parent="transactionProxy">
+		<property name="target">
+			<!-- 当需要短信二次验证时，添加短信模块，同时增加dao注入(p:smSendMsgDao-ref="smSendMsgDao") -->
+			<bean class="com.fs.base.service.imp.OperatorServiceImp"
+				p:operatorDao-ref="operatorDao" p:smSendMsgDao-ref="smSendMsgDao"/>
+		</property>
+	</bean>
+	<bean id="roleService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.base.service.imp.RoleServiceImp"
+				p:roleDao-ref="roleDao" />
+		</property>
+	</bean>
+	<bean id="menuService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.base.service.imp.MenuServiceImp"
+				p:menuDao-ref="menuDao" p:roleDao-ref="roleDao"/>
+		</property>
+	</bean>
+	<bean id="organizationService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.base.service.imp.OrganizationServiceImp"
+				p:organizationDao-ref="organizationDao"/>
+		</property>
+	</bean>
+	<bean id="buttonService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.base.service.imp.ButtonServiceImp"
+				p:buttonDao-ref="buttonDao" p:roleDao-ref="roleDao"/>
+		</property>
+	</bean>
+	<bean id="logService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.base.service.imp.LogServiceImp"
+				p:logDao-ref="logDao"/>
+		</property>
+	</bean>
+	<bean id="paramService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.base.service.imp.FParamServiceImp"
+				p:paramDao-ref="paramDao"/>
+		</property>
+	</bean>
+	<bean id="argumentService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.base.service.imp.ArgumentServiceImp"
+				p:argumentDao-ref="argumentDao"/>
+		</property>
+	</bean>
+	<bean id="timerService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.base.service.imp.TimerServiceImp"
+				p:timerDao-ref="timerDao"/>
+		</property>
+	</bean>
+	<bean id="attachmentService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.base.service.imp.AttachmentServiceImp"
+				p:attachmentDao-ref="attachmentDao"/>
+		</property>
+	</bean>
+	<bean id="contactsService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.base.service.imp.ContactsServiceImp"
+				p:contactsDao-ref="contactsDao" p:conGroupDao-ref="conGroupDao"/>
+		</property>
+	</bean>
+	<bean id="conGroupService" parent="transactionProxy">
+		<property name="target">
+			<bean class="com.fs.base.service.imp.ConGroupServiceImp"
+				p:conGroupDao-ref="conGroupDao"/>
+		</property>
+	</bean>
+	
+</beans>

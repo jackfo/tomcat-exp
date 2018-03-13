@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="">
+	<class name="com.fs.hospital.pojo.Child" table="FS_CHILD"><!-- 儿童 -->
+		<id name="id" type="java.lang.Integer">
+			<column name="CHILD_ID"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" column="CHILD_NAME" type="java.lang.String" />
+		<property name="age" column="CHILD_AGE" type="java.lang.Integer" />
+		<property name="parentName" column="CHILD_PARENTNAME" type="java.lang.String" />
+		<property name="phone" column="CHILD_PHONE" type="java.lang.String" />
+		<property name="addr" column="CHILD_ADDR" type="java.lang.String" />
+		<property name="startTime" column="CHILD_STARTTIME" type="java.sql.Timestamp" />
+		<property name="birthday" column="CHILD_BIRTHDAY" type="java.sql.Timestamp" />
+		
+		<property name="isMessage" column="CHILD_IS_MESSAGE" type="java.lang.Integer" />
+		<property name="messageDesc" column="CHILD_MESSAGE_DESC" type="java.lang.String" />
+		<property name="vaccineTypeId" column="CHILD_VACCINETYPE_ID" type="java.lang.Integer" />
+		
+		<many-to-one name="vaccineType" class="com.fs.hospital.pojo.VaccineType" insert="false" update="false" column="CHILD_VACCINETYPE_ID" not-found="ignore"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="">
+	<class name="com.fs.base.pojo.Role" table="FS_ROLE">
+		<id name="id" type="java.lang.Integer">
+			<column name="ROLE_ID"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="unitId" column="UNIT_ID" type="java.lang.Integer"/>
+		<property name="roleName" column="ROLE_NAME" type="java.lang.String" length="64"/>
+		<property name="roleDesc" column="ROLE_DESC" type="java.lang.String" length="512"/>
+		<many-to-one name="organ" class="com.fs.base.pojo.Organization" column="ORGAN_ID"/>
+		<property name="status" column="STATUS" type="java.lang.Integer"/>
+		
+		<bag name="menus" table="FS_ROLE_MENU" inverse="true">
+			<key column="ROLE_ID" not-null="true" />
+			<many-to-many column="MENU_ID" class="com.fs.base.pojo.Menu"/>
+		</bag>
+		<bag name="roleMenus" inverse="true" cascade="all-delete-orphan">
+			<key column="ROLE_ID"/>
+			<one-to-many class="com.fs.base.pojo.RoleMenu"/>
+		</bag>
+		<bag name="buttons" table="FS_ROLE_BUTTON" inverse="true">
+			<key column="ROLE_ID" not-null="true"/>
+			<many-to-many column="BUTTON_ID" class="com.fs.base.pojo.Button"/>
+		</bag>
+		<bag name="roleButtons" inverse="true" cascade="all-delete-orphan">
+			<key column="ROLE_ID"/>
+			<one-to-many class="com.fs.base.pojo.RoleButton"/>
+		</bag>
+	</class>
+</hibernate-mapping>

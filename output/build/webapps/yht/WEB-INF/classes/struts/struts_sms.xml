@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="sms" namespace="/sms" extends="defaultConfig">
+		<action name="sendMsg" class="smSendMsgAction">
+			<interceptor-ref name="fileUpload">
+				<!-- 配置允许上传的文件类型，多个用","分隔 -->
+				<param name="isRecord">true</param>
+				<param name="allowedTypes">*/*</param>
+				<!-- 配置允许上传的文件大小，单位字节 -->
+				<param name="maximumSize">10240000</param>
+				<param name="attachmentStatus">0</param>
+			</interceptor-ref>
+			<!-- 不能加载默认的拦截器堆，因为默认拦截器堆中都加载了上传拦截器，
+				所以不可以，如果不加载自定义的baseStack堆，则没有自定义拦截器 -->
+			<interceptor-ref name="baseStack" />
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+			<result name="input">${failPath}</result>
+		</action>
+		<action name="sending" class="smSendTaskAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		<action name="template" class="smTemplateAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		<action name="result" class="smSendResultAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		<action name="received" class="smReceivedAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		<action name="chart" class="smChartAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		<action name="vote" class="smVoteAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+		<action name="publishMsg" class="publishMsgAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+	</package>
+</struts>

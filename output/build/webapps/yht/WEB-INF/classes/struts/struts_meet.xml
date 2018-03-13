@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="meet" namespace="/meet" extends="defaultConfig">
+		<!-- 会议通知 -->
+		<action name="conference" class="conferenceAction">
+			<interceptor-ref name="fileUpload">
+				<!-- 配置是否保存到数据库中，默认为false -->
+				<param name="isRecord">false</param>
+				<!-- 配置允许上传的文件类型，多个用","分隔 -->
+				<param name="allowedTypes">application/vnd.ms-excel,application/octet-stream</param>
+				<!-- 配置允许上传的文件大小，单位字节 -->
+				<param name="maximumSize">10485760</param>
+				<param name="attachmentStatus">0</param>
+			</interceptor-ref>
+			<!-- 不能加载默认的拦截器堆，因为默认拦截器堆中都加载了上传拦截器，
+				所以不可以，如果不加载自定义的baseStack堆，则没有自定义拦截器 -->
+			<interceptor-ref name="baseStack" />
+			<result name="input">${failPath}</result>
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="">
+	<class name="com.fs.base.pojo.Argument" table="FS_SYS_ARGUMENT">
+		<id name="id" type="java.lang.Integer">
+			<column name="ID"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="arguName" column="ARGU_NAME" type="java.lang.String" />
+		<property name="arguMark" column="ARGU_MARK" type="java.lang.String" />
+		<property name="arguValue" column="ARGU_VALUE" type="java.lang.String" />
+		<property name="arguType" column="ARGU_TYPE" type="integer" />
+		<property name="arguFormat" column="ARGU_FORMAT" type="java.lang.String" />
+		<property name="arguStatus" column="ARGU_STATUS" type="integer" />
+		<property name="arguKind" column="ARGU_KIND" type="integer" />
+		<property name="arguDesc" column="ARGU_DESC" type="java.lang.String" />
+		
+		<property name="arguTimer" column="ARGU_TIMER" type="integer" />
+		<property name="arguTaskJob" column="ARGU_TASKJOB" type="java.lang.String" />
+		<property name="arguTaskJobTrigger" column="ARGU_TASKJOB_TRIGGER" type="java.lang.String" />
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/web/WEB-INF/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/resource" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/generator" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/fr/utils" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Spring-4.3.12.RELEASE" level="project" />
+    <orderEntry type="library" name="Spring MVC-4.3.12.RELEASE" level="project" />
+    <orderEntry type="library" name="aopalliance-1.0" level="project" />
+    <orderEntry type="library" name="druid-1.0.17" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.28-bin" level="project" />
+    <orderEntry type="library" name="spring-security-config-4.0.3.RELEASE" level="project" />
+    <orderEntry type="library" name="jstl-impl-1.2.2" level="project" />
+    <orderEntry type="library" name="activation-1.1" level="project" />
+    <orderEntry type="library" name="commons-codec-1.10" level="project" />
+    <orderEntry type="library" name="commons-net-3.3" level="project" />
+    <orderEntry type="library" name="fastjson-1.2.7" level="project" />
+    <orderEntry type="library" name="slf4j-api-1.7.7" level="project" />
+    <orderEntry type="library" name="icu4j-52_1" level="project" />
+    <orderEntry type="library" name="commons-beanutils-1.9.2" level="project" />
+    <orderEntry type="library" name="jakarta-oro-2.0.8" level="project" />
+    <orderEntry type="library" name="xstream-1.4.6" level="project" />
+    <orderEntry type="library" name="xercesImpl-2.11.0" level="project" />
+    <orderEntry type="library" name="juel-impl-2.2.7" level="project" />
+    <orderEntry type="library" name="clhm-release-1.0-lru" level="project" />
+    <orderEntry type="library" name="jdbm-1.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="owasp-java-html-sanitizer-r239" level="project" />
+    <orderEntry type="library" name="esapi-2.1.0" level="project" />
+    <orderEntry type="library" name="xml-apis-1.4.01" level="project" />
+    <orderEntry type="library" name="mybatis-generator-core-1.3.5" level="project" />
+    <orderEntry type="library" name="javax.persistence" level="project" />
+    <orderEntry type="library" name="mybatis-spring-1.3.1" level="project" />
+    <orderEntry type="library" name="mybatis-3.4.5" level="project" />
+    <orderEntry type="library" name="spring-security-taglibs-4.0.3.RELEASE" level="project" />
+    <orderEntry type="library" name="servlet-api" level="project" />
+    <orderEntry type="library" name="pagehelper-5.1.2" level="project" />
+    <orderEntry type="library" name="jsqlparser-1.1" level="project" />
+    <orderEntry type="library" name="jstl-1.2" level="project" />
+  </component>
+</module>

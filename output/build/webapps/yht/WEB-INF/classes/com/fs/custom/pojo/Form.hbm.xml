@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.fs.custom.pojo">
+	<class name="Form" table="FS_FORM">
+		<id name="id" column="F_ID" type="java.lang.Long">
+			<generator class="increment" />
+		</id>
+		<property name="name" column="F_NAME" type="java.lang.String" length="64"/>
+		<property name="alias" column="F_ALIAS" type="java.lang.String" length="64"/>
+		<property name="label" column="F_LABEL" type="java.lang.String" length="64"/>
+		<property name="type" column="F_TYPE" type="java.lang.Integer" length="2"/>
+		<property name="sql" column="F_SQL" type="java.lang.String" length="2048"/>
+		
+		<property name="syncDate" column="F_SYNC_DATE" type="java.lang.String" length="4"/>
+		<property name="syncType" column="F_SYNC_TYPE" type="java.lang.Integer" length="2"/>
+		<property name="sendDate" column="F_SEND_DATE" type="java.lang.String" length="16"/>
+		
+		<property name="repeatType" column="F_REPEAT_TYPE" type="java.lang.Integer" length="2"/>
+		
+		<many-to-one name="conn" column="F_C_ID" class="DBConnection"/>
+		<many-to-one name="param" class="com.fs.base.pojo.FParam" column="F_P_ID"/>
+		<bag name="attrs" order-by="A_NUM asc" inverse="true" cascade="all-delete-orphan" lazy="true">
+			<key column="A_F_ID"/>
+			<one-to-many class="FormAttribute"/>
+		</bag>
+		<bag name="params" inverse="true" cascade="all-delete-orphan" lazy="true">
+			<key column="P_F_ID"/>
+			<one-to-many class="FormParam"/>
+		</bag>
+	</class>
+</hibernate-mapping>

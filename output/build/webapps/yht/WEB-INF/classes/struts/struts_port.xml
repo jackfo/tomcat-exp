@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="port" namespace="/port" extends="defaultConfig">
+		<!-- 疫苗模块 -->
+		<action name="follow" class="followAction">
+			<result name="error">${failPath}</result>
+			<result name="success">${succesPath}</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fr.sys.mapper.CmDepartmentMapper">
+  <resultMap id="BaseResultMap" type="com.fr.sys.model.CmDepartment">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="department_id" jdbcType="VARCHAR" property="departmentId" />
+    <result column="department_name" jdbcType="VARCHAR" property="departmentName" />
+    <result column="department_description" jdbcType="LONGVARCHAR" property="departmentDescription" />
+  </resultMap>
+
+  <select id="getDepartmentList" parameterType="String" resultMap="BaseResultMap">
+    select * from cm_department WHERE department_name LIKE '%${keyword}%' or department_description LIKE '%${keyword}%'
+  </select>
+
+  <select id="getEmployeeByDepartment" parameterType="String" resultMap="com.fr.sys.mapper.CmEmployeeMapper.BaseResultMap">
+    SELECT
+          c.employee_id as employee_id,
+          c.e_name as e_name,
+          c.e_sex as e_sex,
+          c.e_sex as e_sex
+      FROM
+          cm_department_employee AS d
+      LEFT JOIN cm_employee c ON d.employee_id = c.employee_id
+      WHERE d.department_id = #{departmentId}
+  </select>
+
+</mapper>

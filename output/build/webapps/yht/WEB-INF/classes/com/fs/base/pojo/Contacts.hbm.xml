@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="">
+	<class name="com.fs.base.pojo.Contacts" table="FS_CON_CONTACTS">
+		<id name="id" type="java.lang.Long">
+			<column name="CON_ID"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="code" column="CON_CODE" type="java.lang.String" length="64"/>
+		<property name="name" column="CON_NAME" type="java.lang.String" length="64"/>
+		<property name="sex" column="CON_SEX" type="java.lang.Short"/>
+		<property name="birthday" column="CON_BIRTHDAY" type="java.lang.String" length="10"/>
+		<property name="phone" column="CON_PHONE" type="java.lang.String" length="32"/>
+		<property name="phoneBK1" column="CON_PHONE_1" type="java.lang.String" length="32"/>
+		<property name="phoneBK2" column="CON_PHONE_2" type="java.lang.String" length="32"/>
+		<property name="email" column="CON_EMAIL" type="java.lang.String" length="32"/>
+		<property name="address" column="CON_ADDRESS" type="java.lang.String" length="256"/>
+		<property name="qq" column="CON_QQ" type="java.lang.String" length="32"/>
+		<property name="fetion" column="CON_FETION" type="java.lang.String" length="32"/>
+		<property name="status" column="CON_STATUS" type="java.lang.Short"/>
+		<property name="createId" column="CREATE_ID" type="java.lang.String" length="64"/>
+		<property name="glzw" column="glzw" type="java.lang.String" length="32"/>
+		<property name="jszw" column="jszw" type="java.lang.String" length="32"/>
+		<bag name="relation" inverse="true" order-by="G_ID asc" cascade="all-delete-orphan">
+			<key column="CON_ID" />
+			<one-to-many class="com.fs.base.pojo.ConGroupRelation" />
+		</bag>
+		<bag name="groups" table="FS_CON_GROUP_RELATION" inverse="true">
+			<key column="CON_ID"/>
+			<many-to-many column="G_ID" class="com.fs.base.pojo.ConGroup"/>
+		</bag>
+	</class>
+</hibernate-mapping>
